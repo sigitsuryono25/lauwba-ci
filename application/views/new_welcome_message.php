@@ -1,33 +1,34 @@
 <?php $this->load->view('headfoot/header') ?>
 <!--END OF HEAD-->
 <div class="">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="carousel slide" data-ride="carousel" id="carousel" style="width: 100%;  ">
-                    <div class="carousel-inner" >
-                        <?php
-                        $no = 1;
-                        foreach ($slider as $s) {
-                            if ($no == 1) {
-                                echo '<div class="carousel-item active">';
-                            } else {
-                                echo '<div class="carousel-item">';
-                            }
-                            ?>
-                            <img class="img-fluid" style="width: 100%;" 
-                                 src="http://www.lauwba.com/sliderimages/<?php echo $s->gbr_slider ?>">
-                        </div>
-                        <?php
-                        $no++;
+    <div class="container-fluid">
+        <!--<div class="col-md-12">-->
+        <div class="carousel slide" data-ride="carousel" id="carousel" style="width: 100%;">
+            <div class="carousel-inner" >
+                <?php
+                $no = 1;
+                foreach ($slider as $s) {
+                    if ($no == 1) {
+                        echo '<div class="carousel-item active">';
+                    } else {
+                        echo '<div class="carousel-item">';
                     }
                     ?>
-                </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
-            </div>
+                    <img class="img-fluid" style="width: 100%;" 
+                         src="http://www.lauwba.com/sliderimages/<?php echo $s->gbr_slider ?>">
+                </div>
+                <?php
+                $no++;
+            }
+            ?>
+        </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+        <!--</div>-->
+
+        <div class="row">
             <div class="col-md-12 blues">
                 <div class="row blues p-2">
                     <div class="col-md-8 justift-content-center  text-center ">
-                        <p class="text-uppercase text-white font-weight-bold pt-1">PROMO!! MASIH DISKON HINGGA 50%. DAFTAR SEKARANG</p>
+                        <p class="text-uppercase text-white font-weight-bold pt-2">PROMO!! MASIH DISKON HINGGA 50%. DAFTAR SEKARANG</p>
                     </div>
                     <div class="col-md-4 text-center">
                         <input onclick="window.open('https://api.whatsapp.com/send?phone=6282221777206&text=Maaf%20Bu,%20Mau%20Konsultasi%20tentang%20training/kursus%20di%20Lauwba...')" type="button" value="DAFTAR VIA WA" name="daftar-via-wa" class="btn btn-light text-primary font-weight-bold"/>
@@ -36,9 +37,9 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row px-3 mt-3 mb-3">
-            <div class="col-md-4 mb-2">
+    <div class="container-fluid mt-4 pt-4 pb-4">
+        <div class="row mt-3 mb-3 d-flex justify-content-center">
+            <div class="col-md-3 m-1 light-shadow">
                 <div class="card text-center"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-pembuatan-website-makassar-lauwba-techno.jpg" alt="Card image cap">
                     <div class="card-body">
                         <p class="text-uppercase teal font-weight-bold text-left">software development</p>
@@ -47,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-2">
+            <div class="col-md-3 m-1 light-shadow">
                 <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/training-web-android-lauwba-techno.jpg" alt="Card image cap">
                     <div class="card-body">
                         <p class="text-uppercase teal font-weight-bold text-left">it training & course</p>
@@ -57,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-2">
+            <div class="col-md-3 m-1 light-shadow">
                 <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
                     <div class="card-body">
                         <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
@@ -68,33 +69,61 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row px-2 my-3">
+    <div class="container ">
+        <div class="row px-2 my-3 ">
             <div class="col-md-12">
                 <div id="gallery">
                     <h2 class="title1" id="titleborder"><span>PRODUK SOFTWARE</span></h2>
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="carousel slide" data-ride="carousel" id="carousel-produk" style="width: 100%;  ">
-                    <div class="carousel-inner" >
-                        <?php
-                        $no = 1;
-                        foreach ($slider as $s) {
-                            if ($no == 1) {
-                                echo '<div class="carousel-item active">';
-                            } else {
-                                echo '<div class="carousel-item">';
-                            }
-                            ?>
-                            <img class="img-fluid" style="width: 100%;" 
-                                 src="http://www.lauwba.com/sliderimages/<?php echo $s->gbr_slider ?>">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-2 m-2 light-shadow">
+                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
+                                <p class="card-text">
+                                </p>
+                            </div>
                         </div>
-                        <?php
-                        $no++;
-                    }
-                    ?>
-                </div> <a class="carousel-control-prev" href="#carousel-produk" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel-produk" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
+                    </div>
+                    <div class="col-md-2 m-2 light-shadow">
+                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
+                                <p class="card-text">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 m-2 light-shadow">
+                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
+                                <p class="card-text">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 m-2 light-shadow">
+                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
+                                <p class="card-text">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 m-2 light-shadow">
+                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
+                                <p class="card-text">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -120,8 +149,8 @@
                     <div class="p-0 col-lg-3 order-2 order-lg-1"> 
                         <img class="img-thumbnail" src="http://www.lauwba.com/foto_berita/<?php echo $b->gambar ?>"> </div>
                     <div class="d-flex flex-column justify-content-center pl-3 col-lg-9 order-1 order-lg-2">
-                        <p class="lead font-weight-bold"><?php echo $b->judul ?></p><br>
-                        <h6><?php
+                        <p class="lead font-weight-bold"><?php echo $b->judul ?></p>
+                        <p class="text-justify"><?php
                             $string = strip_tags($b->isi_jenis);
                             if (strlen($string) > 400) {
 
@@ -134,7 +163,7 @@
                                 $string .= '... <a class="badge badge-warning" href="' . site_url($b->routes) . '">Selengkapnya</a>';
                             }
                             echo $string;
-                            ?></h6>
+                            ?></p>
                     </div>
                 </div>
                 <hr>
@@ -160,7 +189,7 @@
         </div>
         <div class="col-md-12">
             <?php foreach ($kelas as $k) { ?>
-                <div class="row">
+                <div class="row mb-3 px-3">
                     <div class="py-2 col-md-12 light-shadow">
                         <div class="row">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
@@ -171,6 +200,7 @@
                                     <h5>
                                         <b><?php echo $k->judul ?></b>
                                         <br>
+                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
                                         <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($k->biaya) ?></small>
                                     </h5>
                                 </div>
@@ -178,6 +208,7 @@
                                     <h5>
                                         <b><?php echo $k->judul ?></b>
                                         <br>
+                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
                                         <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($k->biaya) ?></small>
                                     </h5>
                                 </div>
@@ -214,6 +245,29 @@
             </div>
         </div>
         <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="bg-primary text-light">
+                        <tr>
+                            <th>Kota</th>
+                            <th>Jadwal</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $kota = array("Bekasi", "Bandung", "Depok", "Makassar", "Jakarta", "Palembang");
+                        for ($i = 0; $i < 6; $i++) {
+                            ?>
+                            <tr>
+                                <td><?php echo $kota[$i] ?></td>
+                                <td>05, 06, 12, 13 Oct 2019</td>
+                                <td>Seat Available</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -226,7 +280,7 @@
         </div>
         <div class="col-md-12">
             <?php foreach ($lain as $l) { ?>
-                <div class="row">
+                <div class="row mb-3">
                     <div class="py-2 col-md-12 light-shadow">
                         <div class="row">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
@@ -237,6 +291,7 @@
                                     <h5>
                                         <b><?php echo $l->judul ?></b>
                                         <br>
+                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
                                         <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($l->hrg) ?></small>
                                     </h5>
                                 </div>
@@ -244,6 +299,7 @@
                                     <h5>
                                         <b><?php echo $l->judul ?></b>
                                         <br>
+                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
                                         <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($l->hrg) ?></small>
                                     </h5>
                                 </div>
@@ -443,7 +499,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="row mt-4">
+    <div class="row px-4 mt-4">
         <div class="container-fluid"></div>
         <div class="col-md-12">
             <div id="gallery">

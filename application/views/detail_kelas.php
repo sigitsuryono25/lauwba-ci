@@ -1,6 +1,6 @@
 <?php $this->load->view('headfoot/header') ?>
 <!--ENDO OF HEAD-->
-<div class="container">
+<!--<div class="container">
     <div class="card- bg-primary text-light pt-2">
         <div class="row">
             <div class="col-md-12">
@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <div class="container">
     <!--DETAIL START HERE-->
     <div class="row">
@@ -337,7 +337,7 @@
     <div class="row">
         <div class="col-md-12">
             <div id="gallery">
-                <h2 class="title1" id="titleborder"><span>Lokasi</span></h2>
+                <h2 class="title1" id="titleborder"><span>Client</span></h2>
             </div>
             <img class="img-fluid d-block" src="https://lauwba.com/img/CLIENT-kursus-Pembuatan-website-android-makassar-jogja-lauwba.jpg">
         </div>

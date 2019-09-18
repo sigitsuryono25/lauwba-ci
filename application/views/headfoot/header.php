@@ -13,7 +13,7 @@ and open the template in the editor.
         <meta name="keywords" content="Kursus Android Jogja, kursus android makassar, kursus web jogja, kursus web makassar. Training/Kursus dan Jasa pembuatan website aplikasi android di makassar,Jogja dan semarang. Kami menawarkan jasa pembuatan website company profile perusahaan, website instansi pemerintahan, website hotel, website sekolah, jasa website toko online dan pembuatan website untuk yayasan dan website pribadi, kursus android programming JOGJA, kursus WEB programming JOGJA, kursus android programming makassar, kursus WEB programming Makassar, kursus web makassar, kursus website yogyakarta jogja, kursus android makassar, kursus android yogyakarta jogja, kursus teknisi laptop makassar, kursus tekisi laptop jogja, Kursus Android Jogja, kursus android makassar, kursus web jogja, kursus web makassar">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <!--<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">-->
-        <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">-->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css') ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css') ?>">
         <link rel="stylesheet" href="<?php echo base_url('assets/highslide/') ?>highslide.css" type="text/css">
@@ -21,7 +21,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid"><div class="row blues">&nbsp;</div></div>
-        <nav class="navbar navbar-expand-md navbar-default nav-pills">
+        <nav class="navbar navbar-expand-md navbar-default nav-pills light-shadow mb-1">
             <div class="container">
                 <a class="navbar-brand text-primary" href="#">
                     <img src="<?php echo base_url('assets/img/logo-lauwba-techno-indonesia.png') ?>" class="img-fluid" width="100%" />
@@ -44,7 +44,7 @@ and open the template in the editor.
                             </div>
                         </li>
                         <li class="nav-item dropdown"> 
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="true" id="software">SOFTWARE DEV.</a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="true" id="software">SOFTWARE DEV</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="">Jasa Pembuatan Aplikasi Mobile (Android & iOS)</a>
                                 <a class="dropdown-item" href="">Jasa Pembuatan Website</a>
@@ -61,8 +61,8 @@ and open the template in the editor.
                             </div>
                         </li>
                         <li class="nav-item"> <a class="nav-link" id="kontak" href="<?php echo site_url('infront/contact') ?>">KONTAK</a> </li>
-                        <li class="nav-item"> <a class="nav-link" id="portofolio" href="#">PORTOFOLIO</a> </li>
-                        <li class="nav-item"> <a class="nav-link" id="news" href="#">NEWS</a> </li>
+                        <li class="nav-item"> <a class="nav-link" id="portofolio" href="<?php echo site_url('infront/portofolio') ?>">PORTOFOLIO</a> </li>
+                        <li class="nav-item"> <a class="nav-link" id="news" href="<?php echo site_url('infront/news') ?>">NEWS</a> </li>
                     </ul>
                 </div>
             </div>

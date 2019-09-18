@@ -4,21 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see https://codeigniter.com/user_guide/general/urls.html
-     */
+
     public function index() {
         $data['news'] = $this->news->daftarBerita();
         $data['slider'] = $this->crud->select_other('slider', 'order by id_slider desc')->result();
@@ -44,8 +30,26 @@ class Welcome extends CI_Controller {
 
     function contact() {
         $data['team'] = $this->crud->select_other('tutor', 'order by id_tutor desc')->result();
+        $data['static'] = $this->crud->select_where('halamanstatis', "id_halaman='28'")->row();
 
         $this->load->view('contacts', $data);
+    }
+
+    function portofolio() {
+        $data['gallery'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album order by id_gallery desc")->result();
+        $data['in_house'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='21' order by id_gallery desc")->result();
+        $data['private'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='20' order by id_gallery desc")->result();
+        $data['regular'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='22' order by id_gallery desc")->result();
+        $data['android'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='17' order by id_gallery desc")->result();
+        $data['desktop'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='26' order by id_gallery desc")->result();
+        $data['website'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='18' order by id_gallery desc")->result();
+        $this->load->view('portofolio', $data);
+    }
+    
+    function static_page($param) {
+        $data['static'] = $this->crud->select_where('halamanstatis', "id_halaman='$param'")->row();
+        
+        $this->load->view('static-pages', $data);
     }
 
 }

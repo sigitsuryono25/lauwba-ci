@@ -8,20 +8,18 @@
         <div class="row">
             <div class="p-4 col-md-3">
                 <img src="<?php echo base_url('assets/img/logo-lauwba-techno-putih.png') ?>" class="img-fluid mb-3">
-                <p> <a href="#" class="text-light mt-2">
-                        <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>Jl. Kusumanegara No. 224 Yogyakarta</a> </p>
-                <p> <a href="#" class="text-light mt-2">
-                        <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>Jl. Kusumanegara No. 224 Yogyakarta</a> </p>
-                <p> <a href="#" class="text-light mt-2">
-                        <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>Jl. Kusumanegara No. 224 Yogyakarta</a> </p>
+                <p> <a href="#" class="text-light mt-2" style="text-decoration: none">
+                        <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>Yogyakarta : Jl. Kusumanegara No 224 Yogyakarta</a> </p>
+                <p> <a href="#" class="text-light mt-2" style="text-decoration: none">
+                        <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>Jakarta (Jabotabek) : Jl. Bougenvile II No.2, Jombang, Ciputat, South Tangerang City</a> </p>
+                <p> <a href="#" class="text-light mt-2" style="text-decoration: none">
+                        <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>Makassar : (Samping STMIK Dipanegara) Jl. Perintis Kemerdekaan No.4Makassar, Sulawesi Selatan</a> </p>
             </div>
             <div class="p-4 col-md-3">
                 <h2 class="mb-4 text-light ">Mapsite</h2>
                 <ul class="list-unstyled"> 
-                    <a href="#" class="text-light ">Home</a> <br> 
-                    <a href="#" class="text-light ">About us</a> <br> 
-                    <a href="#" class="text-light ">Our services</a> <br> 
-                    <a href="#" class="text-light ">Stories</a> 
+                    <a href="<?php echo base_url() ?>" class="text-light ">Home</a> <br> 
+                    <a href="<?php echo site_url('infront/contact') ?>" class="text-light ">About us</a> <br> 
                 </ul>
             </div>
             <div class="p-4 col-md-3">

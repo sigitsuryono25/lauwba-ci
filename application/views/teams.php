@@ -1,12 +1,13 @@
 <?php $this->load->view('headfoot/header') ?>
 <div class="py-3 px-4 mb-4 text-center text-white" >
     <div class="container">
-        <div class="row">
-            <div class="mx-auto col-md-12 bg-primary pt-1">
+        <div class="row mb-4">
+            <div class="mx-auto col-md-12 text-dark pt-1">
                 <h1 class="mb-3">Our team</h1>
                 <h4>Kami mengedepankan pelayanan dan kualitas dalam memberikan solusi atas kebutuhan IT anda.</h4>
             </div>
         </div>
+        <br>
         <div class="row px-3">
             <?php foreach ($team as $t) { ?>
                 <div class="col-lg-6 col-md-6 pb-4 pt-2"> 

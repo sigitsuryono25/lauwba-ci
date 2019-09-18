@@ -13,6 +13,12 @@
  */
 class News extends CI_Controller {
 
+    function news_list() {
+
+        $data['news'] =$this->crud->select_other('news', "ORDER BY post_on DESC LIMIT 20")->result();
+        $this->load->view('news-list', $data);
+    }
+
     //put your code here
     function news_reader($param) {
 //        SELECT * FROM `news` INNER JOIN kategori1 WHERE news.id_kategori=kategori1.id_kategori ORDER BY post_on DESC LIMIT 6
