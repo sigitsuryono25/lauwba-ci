@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-
     public function index() {
         $data['news'] = $this->news->daftarBerita();
         $data['slider'] = $this->crud->select_other('slider', 'order by id_slider desc')->result();
@@ -45,11 +44,27 @@ class Welcome extends CI_Controller {
         $data['website'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='18' order by id_gallery desc")->result();
         $this->load->view('portofolio', $data);
     }
-    
+
     function static_page($param) {
         $data['static'] = $this->crud->select_where('halamanstatis', "id_halaman='$param'")->row();
-        
+
         $this->load->view('static-pages', $data);
+    }
+
+    function soft_dev($param = null) {
+        $first = explode(".", $param);
+        $data['static'] = $this->crud->select_other('halamanstatis', "WHERE judul_seo='$first[0]'")->row();
+        $this->load->view('static-pages', $data);
+    }
+
+    function kursus($param = null) {
+       
+        $first = explode(".", $param);
+
+        $data['kelas'] = $this->crud->select_other('jenis', "join kategori1 ON jenis.id_kategori=kategori1.id_kategori"
+                        . " JOIN kelas ON jenis.id_jenis=kelas.id_jenis "
+                        . " WHERE kategori1.kategori_seo='$first[0]' AND id_subkategori NOT IN ('1') ORDER BY kelas.biaya ASC")->result();
+        $this->load->view('software-dev', $data);
     }
 
 }

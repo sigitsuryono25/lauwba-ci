@@ -4,7 +4,7 @@
 <div class="clearfix"></div>
 <div class="footer1">
     <div class="clearfix divider_dashed1"></div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="p-4 col-md-3">
                 <img src="<?php echo base_url('assets/img/logo-lauwba-techno-putih.png') ?>" class="img-fluid mb-3">
@@ -16,10 +16,12 @@
                         <i class="fa d-inline mr-3 fa-map-marker text-muted"></i>Makassar : (Samping STMIK Dipanegara) Jl. Perintis Kemerdekaan No.4Makassar, Sulawesi Selatan</a> </p>
             </div>
             <div class="p-4 col-md-3">
-                <h2 class="mb-4 text-light ">Mapsite</h2>
+                <h2 class="mb-4 text-light ">Tentang Kami</h2>
                 <ul class="list-unstyled"> 
-                    <a href="<?php echo base_url() ?>" class="text-light ">Home</a> <br> 
-                    <a href="<?php echo site_url('infront/contact') ?>" class="text-light ">About us</a> <br> 
+                    <a href="<?php echo base_url() ?>" class="text-light ">Profil</a> <br> 
+                    <a href="<?php echo base_url('infront/teams') ?>" class="text-light ">Teams</a> <br> 
+                    <a href="<?php echo base_url('infront/contact') ?>" class="text-light ">Kontak</a> <br> 
+                    <a href="<?php echo base_url('infront/portofolio') ?>" class="text-light ">Portofolio</a> <br> 
                 </ul>
             </div>
             <div class="p-4 col-md-3">
@@ -32,10 +34,14 @@
                         <i class="fa d-inline mr-3 text-muted fa-envelope-o"></i>info@lauwba.com</a> </p>
             </div>
             <div class="p-4 col-md-3">
-                <h2 class="mb-4 text-light ">Subscribe</h2>
-                <form>
-                    <fieldset class="form-group"> <label for="exampleInputEmail1">Get our newsletter</label> <input type="email" class="form-control" placeholder="Enter email"> </fieldset> <button type="submit" class="btn btn-outline-dark">Submit</button>
-                </form>
+                <h2 class="mb-4 text-light display-3"></h2>
+                <br>
+                <p> <a target="_blank" href="http://www.facebook.com/LauwbaTechno" class="text-light ">
+                        <i class="fa d-inline mr-3 text-muted fa-facebook-square"></i>Lauwba Techno Indonesia</a> </p>
+                <p> <a target="_blank" href="https://twitter.com/@lauwbatechno" class="text-light ">
+                        <i class="fa d-inline mr-3 text-muted fa-twitter-square"></i>@lauwbatechno</a> </p>
+                <p> <a target="_blank" href="https://www.instagram.com/lauwba_techno/" class="text-light ">
+                        <i class="fa d-inline mr-3 text-muted fa-instagram"></i>@lauwba_techno</a> </p>
             </div>
             <div class="col-md-12">
                 <p class="lead text-center text-light"> Lauwba Techno Indonesia &copy; <?php echo date("Y") ?></p>

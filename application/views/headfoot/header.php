@@ -23,7 +23,7 @@ and open the template in the editor.
         <div class="container-fluid"><div class="row blues">&nbsp;</div></div>
         <nav class="navbar navbar-expand-md navbar-default nav-pills light-shadow mb-1">
             <div class="container">
-                <a class="navbar-brand text-primary" href="#">
+                <a class="navbar-brand text-primary" href="<?php echo base_url()?>">
                     <img src="<?php echo base_url('assets/img/logo-lauwba-techno-indonesia.png') ?>" class="img-fluid" width="100%" />
                 </a>
                 <center>
@@ -46,18 +46,19 @@ and open the template in the editor.
                         <li class="nav-item dropdown"> 
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="true" id="software">SOFTWARE DEV</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="">Jasa Pembuatan Aplikasi Mobile (Android & iOS)</a>
-                                <a class="dropdown-item" href="">Jasa Pembuatan Website</a>
-                                <a class="dropdown-item" href="">Jasa Pembuatan Aplikasi Full Custom</a>
+                                <a class="dropdown-item" href="<?php echo site_url('sov-def/jasa-pembuatan-aplikasi-mobile-android-ios.html') ?>">Jasa Pembuatan Aplikasi Mobile (Android & iOS)</a>
+                                <a class="dropdown-item" href="<?php echo site_url('sov-def/jasa-pembuatan-website.html') ?>">Jasa Pembuatan Website</a>
+                                <a class="dropdown-item" href="<?php echo site_url('sov-def/jasa-pembuatan-aplikasi-full-custom.html') ?>">Jasa Pembuatan Aplikasi Full Custom</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown"> 
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="true" id="kursus" >KURSUS</a> 
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<?php echo site_url('training-20-pelatihan-membuat-aplikasi-android-android-programming.html') ?>">Training/Kursus Android</a>
-                                <a class="dropdown-item" href="<?php echo site_url('training-19-pelatihan-membuat-website-web-design--programming.html') ?>">Training/Kursus Website</a>
-                                <a class="dropdown-item" href="<?php echo site_url('training-12-training--kursus-digital-marketing.html') ?>">Training/Kursus Digital Marketing</a>
-                                <a class="dropdown-item" href="">Lain-Lain</a>
+                                <a class="dropdown-item" href="<?php echo site_url('kursus/training-android.html') ?>">Training/Kursus Android</a>
+                                <a class="dropdown-item" href="<?php echo site_url('kursus/training-web-programming.html') ?>">Training/Kursus Website</a>
+                                <a class="dropdown-item" href="<?php echo site_url('kursus/training-ios.html') ?>">Training/Kursus iOS</a>
+                                <a class="dropdown-item" href="<?php echo site_url('kursus/training-flutter.html') ?>">Training/Kursus Flutter</a>
+                                <a class="dropdown-item" href="<?php echo site_url('kursus/training-digital-marketing.html') ?>">Training/Kursus Digital Marketing</a>
                             </div>
                         </li>
                         <li class="nav-item"> <a class="nav-link" id="kontak" href="<?php echo site_url('infront/contact') ?>">KONTAK</a> </li>

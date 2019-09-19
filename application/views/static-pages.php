@@ -1,9 +1,12 @@
 <?php $this->load->view('headfoot/header') ?>
 <div class="container">
-    <div class="card- bg-primary text-light pt-2 mb-4">
+    <div class="text-light pt-2 mb-4">
+
         <div class="row">
             <div class="col-md-12">
-                <h2 class="display-4 text-uppercase text-center"> <?php echo $static->judul ?></h2>
+                <div id="gallery">
+                    <h2 class="title1" id="titleborder"><span><?php echo $static->judul ?></span></h2>
+                </div>
             </div>
         </div>
     </div>

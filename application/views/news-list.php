@@ -1,9 +1,11 @@
 <?php $this->load->view('headfoot/header') ?>
 <div class="container">
-    <div class="card- bg-primary text-light pt-2 mb-4">
+    <div class="text-light pt-2 mb-4">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="display-4 text-uppercase text-center">Lauwba News</h2>
+                <div id="gallery">
+                    <h2 class="title1" id="titleborder"><span>Lauwba News</span></h2>
+                </div>
             </div>
         </div>
     </div>
@@ -14,7 +16,7 @@
             <div class="py-2 col-md-12 light-shadow">
                 <div class="row">
                     <div class="text-center col-md-2 d-block align-self-center justify-content-center">
-                        <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $k->foto_news ?>" height="150" width="150">
+                        <img class="img-fluid" src="http://www.lauwba.com/img/<?php echo $k->foto_news ?>" height="150" width="150">
                     </div>
                     <div class="col-md-10">
                         <div class="mb-1 text-primary d-none d-md-block">

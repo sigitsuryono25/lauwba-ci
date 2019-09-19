@@ -1,242 +1,93 @@
 <?php $this->load->view('headfoot/header') ?>
-<!--END OF HEAD-->
-<div class="">
-    <div class="container-fluid">
-        <!--<div class="col-md-12">-->
-        <div class="carousel slide" data-ride="carousel" id="carousel" style="width: 100%;">
-            <div class="carousel-inner" >
-                <?php
-                $no = 1;
-                foreach ($slider as $s) {
-                    if ($no == 1) {
-                        echo '<div class="carousel-item active">';
-                    } else {
-                        echo '<div class="carousel-item">';
-                    }
-                    ?>
-                    <img class="img-fluid" style="width: 100%;" 
-                         src="http://www.lauwba.com/sliderimages/<?php echo $s->gbr_slider ?>">
-                </div>
-                <?php
-                $no++;
-            }
-            ?>
-        </div> <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span> </a>
-        <!--</div>-->
-
+<!--ENDO OF HEAD-->
+<div class="container">
+    <div class="text-light pt-2">
         <div class="row">
-            <div class="col-md-12 blues">
-                <div class="row blues p-2">
-                    <div class="col-md-8 justift-content-center  text-center ">
-                        <p class="text-uppercase text-white font-weight-bold pt-2">PROMO!! MASIH DISKON HINGGA 50%. DAFTAR SEKARANG</p>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <input onclick="window.open('https://api.whatsapp.com/send?phone=6282221777206&text=Maaf%20Bu,%20Mau%20Konsultasi%20tentang%20training/kursus%20di%20Lauwba...')" type="button" value="DAFTAR VIA WA" name="daftar-via-wa" class="btn btn-light text-primary font-weight-bold"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid mt-4 pt-4 pb-4">
-        <div class="row mt-3 mb-3 d-flex justify-content-center">
-            <div class="col-md-3 m-1">
-                <div class="card text-center"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-pembuatan-website-makassar-lauwba-techno.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="text-uppercase teal font-weight-bold text-center">software development</p>
-                        <p class="card-text text-center">Jasa Pembuatan Website, Aplikasi Android, iOS dan aplikasi custom by request. Saat ini sudah ada ratusan client kami, baik dari Perusahaan,
-                            Instansi Pemerintahan, Kampus, Sekolah, Yayasan dll</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 m-1">
-                <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/training-web-android-lauwba-techno.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="text-uppercase teal font-weight-bold text-center">it training & course</p>
-                        <p class="card-text text-center">
-                            Terdapat Kelas Reguler, Private, Inhouse dan Incubator. Kami telah meluluskan ribuan peserta Training dari berbagai kalangan baik dari utusan instansi pemerintahan, kampus dan perusahaan.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 m-1">
-                <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="text-uppercase teal font-weight-bold text-center">digital marketing</p>
-                        <p class="card-text text-center">
-                            Jasa SEO, Google Adwords/ads & Facebook Ads. Telah terbukti meningkatkan penjualan Dealer Resmi Mobil Suzuki Makassar, CV. Tugu Jogja, Fullbright Institute & Beberapa perusahaan lainnya</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container ">
-        <div class="row px-2 my-3 ">
             <div class="col-md-12">
                 <div id="gallery">
-                    <h2 class="title1" id="titleborder"><span>PRODUK SOFTWARE</span></h2>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <h2 class="title1" id="titleborder"><span>Detail Training</span></h2>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row px-2">
-        <div class="col-md-12">
-            <div id="gallery">
-                <h2 class="title1" id="titleborder"><span>BIMBTEK CLASS</span></h2>
-            </div>
-        </div>
-        <div class="col-md-12 text-center">
-            <h4 class="text-uppercase">bimbingan teknis 2019/2020</h4>
-            <p class="lead">Kelas Bimbingan Teknis Khusus Untuk Instansi Pemerintahan & Swasta di Bidang IT 2019/2020</p>
-            <p>Bagi Instansi yang membutuhkan surat penawaran BIMTEK dari kami langsung 
-                <a class="font-weight-bold" target="_blank" href="https://api.whatsapp.com/send?phone=6282221777206&text=Hallo%20Admin,%20apakah%20bisa%20dikirimkan%20%20surat%20penawaran%20untuk%20BIMTEK?">KLIK DISINI</a></p>
-
-            <hr>
-        </div>
-        <div class="col-md-12 mx-2">
-            <?php foreach ($bimtek as $b) { ?>
-                <div class="row mb-2  d-none d-md-flex" onclick="window.open(`<?php echo site_url($b->routes) ?>`)" style="cursor: pointer">
-                    <div class="p-0 col-lg-3 order-2 order-lg-1"> 
-                        <img class="img-thumbnail" src="http://www.lauwba.com/foto_berita/<?php echo $b->gambar ?>"> </div>
-                    <div class="d-flex flex-column justify-content-center pl-3 col-lg-9 order-1 order-lg-2">
-                        <p class="lead font-weight-bold"><?php echo $b->judul ?></p>
-                        <p class="text-justify"><?php
-                            $string = strip_tags($b->isi_jenis);
-                            if (strlen($string) > 400) {
-
-                                // truncate string
-                                $stringCut = substr($string, 0, 400);
-                                $endPoint = strrpos($stringCut, ' ');
-
-                                //if the string doesn't contain any space then it will cut without word basis.
-                                $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                $string .= '... <a class="badge badge-warning" href="' . site_url($b->routes) . '">Selengkapnya</a>';
-                            }
-                            echo $string;
-                            ?></p>
+    <!--DETAIL START HERE-->
+    <div class="row">
+        <div class="col-md-8">
+            <article class="row single-post mt-5 no-gutters">
+                <div class="col-md-12">
+                    <h1 class=""><?php echo $detail->judul ?></h1>
+                    <div class="image-wrapper float-left pr-3">
+                        <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $detail->gambar ?>" height="150" width="150">
+                    </div>
+                    <div class="single-post-content-wrapper p-3 text-justify">
+                        <?php echo $detail->isi_jenis ?>
                     </div>
                 </div>
-                <hr>
-                <div class="col-md-4 mb-2 d-block d-md-none" onclick="window.open(`<?php echo site_url($b->routes) ?>`)" style="cursor: pointer">
-                    <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                            <p class="card-text">
-                                Jasa SEO, Google Adwords/ads & Facebook Ads. Telah terbukti meningkatkan penjualan Dealer Resmi Mobil Suzuki Makassar, CV. Tugu Jogja, Fullbright Institute & Beberapa perusahaan lainnya</p>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
+            </article>
+        </div>
+        <div class="col-md-4">
+            <?php
+            $kelas1 = $this->db->query("SELECT * FROM kelas join jenis on kelas.id_jenis=jenis.id_jenis WHERE jenis.routes='$segment'")->row();
+            ?>
+            <aside class="col-md-12">
+                <div class=" box_style_1">
+                    <div class="widget">
+                        <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;"> Fasilitas</h4>
+
+                        <ol style="-webkit-padding-start: 25px;">
+                            <li style="list-style-type: decimal;">
+                                Sertifikat RESMI
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Ruangan Full AC &amp; Full Akses Internet
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Aplikasi dan Modul dalam bentuk BUKU 
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Lunch
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Dapat berkonsultasi setelah kursus selesai melalui grup Whatsapp
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Peserta terbatas 6 org/kelas full internet
+                            </li>
+                            <li style="list-style-type: decimal;">
+                                Voucher Discon training senilai Rp. 250.000
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                GRATIS Mengulang sampai BISA!
+                            </li>
+                        </ol>
+                        <div class="widget">
+                            <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;">Kelas Private &amp; Inhouse Training</h4>
+                            <p>Training yang waktu pelaksanaan, durasi, harga, silabus, tempat dan jumlah pesertanya dapat disesuaikan dengan permintaan anda. </p>
+                            <p>Silakan hubungi kami langsung </p>
+                            <p > <a target="_blank" href="https://api.whatsapp.com/send?phone=6282221777206&text=Maaf%20Bu,%20Mau%20Konsultasi%20tentang%20training/kursus%20di%20Lauwba..." class="text-dark ">
+                                    <i class="fa d-inline mr-3 text-muted fa-whatsapp"></i>08 222 1 777 206</a> 
+                                (Klik Disini)
+                            </p>
+                        </div><!-- End widget -->
+                        <div class="widget">
+                            <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;">Konsultasi Langsung</h4>
+                            <p>Jika ada yang mau ditanyakan, silakan Hubungi kami  </p>
+                            KONSULTASI 1X24 JAM WA/telp <br><i>Fast Respon</i>  <p > <a target="_blank" href="https://api.whatsapp.com/send?phone=6282221777206&text=Maaf%20Bu,%20Mau%20Konsultasi%20tentang%20training/kursus%20di%20Lauwba..." class="text-dark ">
+                                    <i class="fa d-inline mr-3 text-muted fa-whatsapp"></i>08 222 1 777 206</a> 
+                                (Klik Disini)
+                            </p>
+                        </div><!-- End widget -->
+                    </div><!-- End widget -->
+                </div><!-- End box-sidebar -->
+            </aside>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row px-4 ">
-        <div class="col-md-12">
-            <div id="gallery">
-                <h2 class="title1" id="titleborder"><span>IT Training &amp; Course</span></h2>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <?php foreach ($kelas as $k) { ?>
-                <div class="row mb-3 px-3">
-                    <div class="py-2 col-md-12 light-shadow">            
-                        <div class="row" onclick="window.open(`<?php echo site_url($k->routes) ?>`)" style="cursor: pointer">
-                            <div class="text-center col-md-2 d-block align-self-center justify-content-center">
-                                <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $k->gambar ?>" height="150" width="150">
-                            </div>
-                            <div class="col-md-10">
-                                <div class="mb-1 text-primary d-none d-md-block">
-                                    <h5>
-                                        <b><?php echo $k->judul ?></b>
-                                        <br>
-                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
-                                        <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($k->biaya) ?></small>
-                                    </h5>
-                                </div>
-                                <div class="d-block d-md-none mb-1 mt-1 text-primary text-center">
-                                    <h5>
-                                        <b><?php echo $k->judul ?></b>
-                                        <br>
-                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
-                                        <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($k->biaya) ?></small>
-                                    </h5>
-                                </div>
-                                <p class="my-1 text-justify">
-                                    <?php
-                                    $string = strip_tags($b->isi_jenis);
-                                    if (strlen($string) > 300) {
 
-                                        // truncate string
-                                        $stringCut = substr($string, 0, 300);
-                                        $endPoint = strrpos($stringCut, ' ');
 
-                                        //if the string doesn't contain any space then it will cut without word basis.
-                                        $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                        $string .= '... <a class="badge badge-warning" href="' . site_url($k->routes) . '">Selengkapnya</a>';
-                                    }
-                                    echo $string;
-                                    ?>
-                                </p>
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-            <?php } ?>
-        </div>
-    </div>
-</div>
+<!--footer-->
 <div class="container">
     <div class="row px-4">
         <div class="col-md-12">
@@ -272,6 +123,61 @@
     </div>
 </div>
 <div class="container">
+    <div class="row px-4 ">
+        <div class="col-md-12">
+            <div id="gallery">
+                <h2 class="title1" id="titleborder"><span>IT Training &amp; Course</span></h2>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <?php foreach ($kelas as $k) { ?>
+                <div class="row" onclick="window.open(`<?php echo site_url($k->routes) ?>`)" style="cursor: pointer">
+                    <div class="py-2 col-md-12 light-shadow">
+                        <div class="row">
+                            <div class="text-center col-md-2 d-block align-self-center justify-content-center">
+                                <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $k->gambar ?>" height="150" width="150">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-1 text-primary d-none d-md-block">
+                                    <h5>
+                                        <b><?php echo $k->judul ?></b>
+                                        <br>
+                                        <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($k->biaya) ?></small>
+                                    </h5>
+                                </div>
+                                <div class="d-block d-md-none mb-1 mt-1 text-primary text-center">
+                                    <h5>
+                                        <b><?php echo $k->judul ?></b>
+                                        <br>
+                                        <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($k->biaya) ?></small>
+                                    </h5>
+                                </div>
+                                <p class="my-1 text-justify">
+                                    <?php
+                                    $string = strip_tags($k->isi_jenis);
+                                    if (strlen($string) > 300) {
+
+                                        // truncate string
+                                        $stringCut = substr($string, 0, 300);
+                                        $endPoint = strrpos($stringCut, ' ');
+
+                                        //if the string doesn't contain any space then it will cut without word basis.
+                                        $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                        $string .= '... <a class="badge badge-warning" href="' . site_url($k->routes) . '">Selengkapnya</a>';
+                                    }
+                                    echo $string;
+                                    ?>
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+<div class="container">
     <div class="row px-4">
         <div class="col-md-12">
             <div id="gallery">
@@ -280,9 +186,9 @@
         </div>
         <div class="col-md-12">
             <?php foreach ($lain as $l) { ?>
-                <div class="row mb-3">
+                <div class="row">
                     <div class="py-2 col-md-12 light-shadow">
-                        <div class="row" onclick="window.open(`<?php echo site_url($l->routes) ?>`)" style="cursor: pointer">
+                       <div class="row" onclick="window.open(`<?php echo site_url($l->routes) ?>`)" style="cursor: pointer">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
                                 <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $l->gambar ?>" height="150" width="150">
                             </div>
@@ -291,7 +197,6 @@
                                     <h5>
                                         <b><?php echo $l->judul ?></b>
                                         <br>
-                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
                                         <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($l->hrg) ?></small>
                                     </h5>
                                 </div>
@@ -299,7 +204,6 @@
                                     <h5>
                                         <b><?php echo $l->judul ?></b>
                                         <br>
-                                        <small class="text-danger font-weight-bold"><del>Rp. <?php echo $this->etc->rps($k->biaya_coret) ?></del></small>
                                         <small class="badge badge-success text-center">Rp. <?php echo $this->etc->rps($l->hrg) ?></small>
                                     </h5>
                                 </div>
@@ -479,13 +383,11 @@
         </div>
         <div class="col-md-12">
             <div class="row">
-                <?php
-                foreach ($news as $n) {
-                    ?>
-                    <div class="col-md-6" onclick="window.open('<?php echo site_url('reader/' . $n->judul_seo) ?>')" title="<?php echo $n->jdl_news ?>" style="cursor: pointer">
+                <?php foreach ($news as $n) { ?>
+                    <div class="col-md-6" onclick="window.open()" title="<?php echo $n->jdl_news ?>" style="cursor: pointer">
                         <div class="row px-3">
                             <div class="p-0 col-lg-4 order-2 order-lg-1">
-                                <img class="img-fluid d-block my-2" src="http://www.lauwba.com/img/<?php echo $n->foto_news ?>" alt="gambar berita">
+                                <img class="img-fluid d-block my-2" src="https://static.pingendo.com/cover-bubble-light.svg" alt="gambar berita">
                             </div>
                             <div class="p-3 col-lg-7 order-1 order-lg-2 ">
                                 <p class="font-weight-bold"><?php echo $n->jdl_news ?><br>
@@ -501,7 +403,7 @@
     </div>
 </div>
 <div class="container">
-    <div class="row px-4 mt-4">
+    <div class="row mt-4">
         <div class="container-fluid"></div>
         <div class="col-md-12">
             <div id="gallery">
@@ -515,7 +417,7 @@
     <div class="row">
         <div class="col-md-12">
             <div id="gallery">
-                <h2 class="title1" id="titleborder"><span>Lokasi</span></h2>
+                <h2 class="title1" id="titleborder"><span>Client</span></h2>
             </div>
             <img class="img-fluid d-block" src="https://lauwba.com/img/CLIENT-kursus-Pembuatan-website-android-makassar-jogja-lauwba.jpg">
         </div>

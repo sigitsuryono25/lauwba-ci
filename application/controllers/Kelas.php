@@ -27,9 +27,17 @@ class Kelas extends CI_Controller {
         $data['album'] = $this->crud->select('album')->result();
 
         $segment = $this->uri->segment(1);
+        $data['segment'] = $segment;
         $data['detail'] = $this->crud->select_where('jenis', "jenis.routes='$segment'")->row();
 
-        $this->load->view('detail_kelas', $data);
+        $routes = array('bimbingan-teknis-pengelolaan-fotografi-dan-videografi-bagi-pemerintah-daerah-35.html', 'bimbingan-teknis-membangun-sistem-informasi-dan-administrasi-desa-berbasis-android--website-34.html',
+            'in-house-training-27', 'incubator-class-android-26.html', 'private-class-web-android-25.html');
+
+        if (in_array($segment, $routes)) {
+            $this->load->view('detail_kelas_1', $data);
+        } else {
+            $this->load->view('detail_kelas', $data);
+        }
     }
 
 }

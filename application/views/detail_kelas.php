@@ -1,21 +1,23 @@
 <?php $this->load->view('headfoot/header') ?>
 <!--ENDO OF HEAD-->
-<!--<div class="container">
-    <div class="card- bg-primary text-light pt-2">
+<div class="container">
+    <div class="text-light pt-2">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="display-4 text-uppercase text-center">Detail Training</h2>
+                <div id="gallery">
+                    <h2 class="title1" id="titleborder"><span>Detail Training</span></h2>
+                </div>
             </div>
         </div>
     </div>
-</div>-->
+</div>
 <div class="container">
     <!--DETAIL START HERE-->
     <div class="row">
         <div class="col-md-8">
             <article class="row single-post mt-5 no-gutters">
                 <div class="col-md-12">
-                    <h3 class="lead"><?php echo $detail->judul ?></h3>
+                    <h1 class=""><?php echo $detail->judul ?></h1>
                     <div class="image-wrapper float-left pr-3">
                         <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $detail->gambar ?>" height="150" width="150">
                     </div>
@@ -25,8 +27,117 @@
                 </div>
             </article>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <?php
+            $kelas1 = $this->db->query("SELECT * FROM kelas join jenis on kelas.id_jenis=jenis.id_jenis WHERE jenis.routes='$segment'")->row();
+            ?>
+            <aside class="col-md-12">
+                <div class=" box_style_1">
+                    <div class="widget">
+                        <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;">Weekday</h4>
+                        <table cellpadding="4" class="table">
+                            <tbody>
+                                <tr> <td class="jarak">Hari&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Kamis - Minggu</td> </tr>
+                                <tr> <td class="jarak">Pukul&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><?php echo $kelas1->jam_mulai; ?> - <?php echo $kelas1->jam_akhir; ?> WIB</td> </tr>
+                                <tr> <td class="jarak">Durasi&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>4 Hari </td> </tr>
+                                <tr> <td class="jarak">Biaya&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Rp. <?php echo $this->etc->rps($kelas1->biaya); ?></td> </tr>
+                                <tr> <td class="jarak">Tempat &nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><div>Lauwba</div></td> </tr>
+                                <tr> <td class="jarak">Min. Peserta&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>2 Peserta</td> </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- End widget -->
+                    <div class="widget">
+                        <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;">Weekend</h4>
+                        <table cellpadding="4" class="table">
+                            <tr> <td class="jarak">Hari&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Sabtu-Minggu</td> </tr>
+                            <tr> <td class="jarak">Pukul&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><?php echo $kelas1->jam_mulai1; ?> - <?php echo $kelas1->jam_akhir1; ?> WIB</td> </tr>
+                            <tr> <td class="jarak">Durasi&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>4 Hari </td> </tr>
+                            <tr> <td class="jarak">Biaya&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Rp. <?php echo $this->etc->rps($kelas1->biaya1); ?></td> </tr>
+                            <tr> <td class="jarak">Tempat &nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><div>Lauwba</div></td> </tr>
+                            <tr> <td class="jarak">Min. Peserta&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>2 Peserta</td> </tr>
+                            </tbody>
+                        </table>
+                    </div><!-- End widget -->
+                    <div class="widget">
+                        <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;"> Fasilitas</h4>
+
+                        <ol style="-webkit-padding-start: 25px;">
+                            <li style="list-style-type: decimal;">
+                                Sertifikat RESMI
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Ruangan Full AC &amp; Full Akses Internet
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Aplikasi dan Modul dalam bentuk BUKU 
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Lunch
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Dapat berkonsultasi setelah kursus selesai melalui grup Whatsapp
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                Peserta terbatas 6 org/kelas full internet
+                            </li>
+                            <li style="list-style-type: decimal;">
+                                Voucher Discon training senilai Rp. 250.000
+                            </li>
+                            <li style="list-style-type: decimal;"> 			 
+                                GRATIS Mengulang sampai BISA!
+                            </li>
+                        </ol>
+                        <div class="widget">
+                            <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;">Kelas Private &amp; Inhouse Training</h4>
+                            <p>Training yang waktu pelaksanaan, durasi, harga, silabus, tempat dan jumlah pesertanya dapat disesuaikan dengan permintaan anda. </p>
+                            <p>Silakan hubungi kami langsung </p>
+                            <p > <a target="_blank" href="https://api.whatsapp.com/send?phone=6282221777206&text=Maaf%20Bu,%20Mau%20Konsultasi%20tentang%20training/kursus%20di%20Lauwba..." class="text-dark ">
+                                    <i class="fa d-inline mr-3 text-muted fa-whatsapp"></i>08 222 1 777 206</a> 
+                                (Klik Disini)
+                            </p>
+                        </div><!-- End widget -->
+                        <div class="widget">
+                            <h4 style="background-color: rgb(24, 0, 187); color: #FFF; padding: 15px 0px 15px 8px;">Konsultasi Langsung</h4>
+                            <p>Jika ada yang mau ditanyakan, silakan Hubungi kami  </p>
+                            KONSULTASI 1X24 JAM WA/telp <br><i>Fast Respon</i>  <p > <a target="_blank" href="https://api.whatsapp.com/send?phone=6282221777206&text=Maaf%20Bu,%20Mau%20Konsultasi%20tentang%20training/kursus%20di%20Lauwba..." class="text-dark ">
+                                    <i class="fa d-inline mr-3 text-muted fa-whatsapp"></i>08 222 1 777 206</a> 
+                                (Klik Disini)
+                            </p>
+                        </div><!-- End widget -->
+                    </div><!-- End widget -->
+                </div><!-- End box-sidebar -->
+            </aside>
+        </div>
     </div>
+
+    <!--trainer-->
+    <div class="container-fluid">
+
+        <h4>INSTRUCTOR</h4>
+        <div class="row">
+            <?php $trainer1 = $this->db->query("SELECT * FROM kelas join jenis on kelas.id_jenis=jenis.id_jenis join tutor on kelas.id_tutor=tutor.id_tutor WHERE jenis.routes='$segment'")->row(); ?>
+            <?php $trainer2 = $this->db->query("SELECT * FROM kelas join jenis on kelas.id_jenis=jenis.id_jenis join tutor on kelas.id_tutor1=tutor.id_tutor WHERE jenis.routes='$segment'")->row(); ?>
+            <div class="col-md-6">
+                <div class="avatar"><a href="#"><img src="http://www.lauwba.com/foto_banner/<?php echo $trainer1->gambar ?>" alt=""></a></div>
+                <div class="comment_right clearfix">
+                    <div class="comment_info">
+                        <a href="#"><?php echo $trainer1->nama ?></a>
+                    </div>
+                    <?php echo $trainer1->tentang ?>
+                </div>
+            </div>            
+            <div class="col-md-6"> 
+                <div class="avatar"><a href="#"><img src="http://www.lauwba.com/foto_banner/<?php echo $trainer2->gambar ?>" alt=""></a></div>
+                <div class="comment_right clearfix">
+                    <div class="comment_info">
+                        <a href="#"><?php echo $trainer2->nama ?></a>
+                    </div>
+                    <?php echo $trainer2->tentang ?>
+                </div>
+            </div><!-- End Comments -->
+        </div>
+    </div>
+    <hr>    
 </div>
 
 
@@ -39,6 +150,29 @@
             </div>
         </div>
         <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="bg-primary text-light">
+                        <tr>
+                            <th>Kota</th>
+                            <th>Jadwal</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $kota = array("Yogyakarta", "Bekasi", "Bandung", "Depok", "Makassar", "Jakarta", "Palembang");
+                        for ($i = 0; $i < 6; $i++) {
+                            ?>
+                            <tr>
+                                <td><?php echo $kota[$i] ?></td>
+                                <td>05, 06, 12, 13 Oct 2019</td>
+                                <td>Seat Available</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -51,7 +185,7 @@
         </div>
         <div class="col-md-12">
             <?php foreach ($kelas as $k) { ?>
-                <div class="row">
+            <div class="row" onclick="window.open(`<?php echo site_url($k->routes)?>`)" style="cursor: pointer">
                     <div class="py-2 col-md-12 light-shadow">
                         <div class="row">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
@@ -108,7 +242,7 @@
             <?php foreach ($lain as $l) { ?>
                 <div class="row">
                     <div class="py-2 col-md-12 light-shadow">
-                        <div class="row">
+                        <div class="row" onclick="window.open(`<?php echo site_url($l->routes) ?>`)" style="cursor: pointer">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
                                 <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $l->gambar ?>" height="150" width="150">
                             </div>

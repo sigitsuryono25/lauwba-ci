@@ -32,7 +32,7 @@
         <div class="col-md-12">
             <div class="row">
                 <?php foreach ($news as $n) { ?>
-                    <div class="col-md-6" onclick="window.open()" title="<?php echo $n->jdl_news ?>" style="cursor: pointer">
+                    <div class="col-md-6" onclick="window.open(`<?php echo site_url('reader/' . $n->judul_seo) ?>`)" title="<?php echo $n->jdl_news ?>" style="cursor: pointer">
                         <div class="row px-3">
                             <div class="p-0 col-lg-4 order-2 order-lg-1">
                                 <img class="img-fluid d-block my-2" src="http://www.lauwba.com/img/<?php echo $n->foto_news ?>" alt="gambar berita">
@@ -58,6 +58,29 @@
             </div>
         </div>
         <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="bg-primary text-light">
+                        <tr>
+                            <th>Kota</th>
+                            <th>Jadwal</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $kota = array("Bekasi", "Bandung", "Depok", "Makassar", "Jakarta", "Palembang");
+                        for ($i = 0; $i < 6; $i++) {
+                            ?>
+                            <tr>
+                                <td><?php echo $kota[$i] ?></td>
+                                <td>05, 06, 12, 13 Oct 2019</td>
+                                <td>Seat Available</td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

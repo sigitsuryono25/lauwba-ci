@@ -60,3 +60,5 @@ $route['infront/contact'] = 'welcome/contact';
 $route['infront/portofolio'] = 'welcome/portofolio';
 $route['infront/news'] = 'News/news_list';
 $route['infront/layanan-(:any).html'] = 'welcome/static_page/$1';
+$route['kursus/(:any)'] = 'welcome/kursus/$1';
+$route['sov-def/(:any)'] = 'welcome/soft_dev/$1';
