@@ -25,14 +25,17 @@ class Kelas extends CI_Controller {
         $data['regular'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='22' order by id_gallery desc limit 9")->result();
         $data['produk'] = $this->crud->select_other('produk', 'ORDER BY date_added DESC LIMIT 10')->result();
         $data['album'] = $this->crud->select('album')->result();
+        $data['jadwal'] = $this->crud->select_other("kelas", 'join jenis on kelas.id_jenis=jenis.id_jenis ORDER BY kelas.jadwal DESC')->result();
 
         $segment = $this->uri->segment(1);
         $data['segment'] = $segment;
+
         $data['detail'] = $this->crud->select_where('jenis', "jenis.routes='$segment'")->row();
 
         $routes = array('bimbingan-teknis-pengelolaan-fotografi-dan-videografi-bagi-pemerintah-daerah-35.html', 'bimbingan-teknis-membangun-sistem-informasi-dan-administrasi-desa-berbasis-android--website-34.html',
             'in-house-training-27', 'incubator-class-android-26.html', 'private-class-web-android-25.html');
 
+        $this->load->view('headfoot/doctypedetail', $data);
         if (in_array($segment, $routes)) {
             $this->load->view('detail_kelas_1', $data);
         } else {

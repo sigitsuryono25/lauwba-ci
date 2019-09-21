@@ -40,7 +40,7 @@ class Crud_m extends CI_Model {
         $query = $this->db->query("Select * from $table where $where");
         return $query;
     }
-    function select_other($table, $other){
+    function select_other($table, $other = NULL){
         $query = $this->db->query("Select * from $table $other");
         return $query;
     }

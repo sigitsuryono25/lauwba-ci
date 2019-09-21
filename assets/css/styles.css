@@ -49,6 +49,13 @@ h2.title1 {
     background-color: rgba(105, 105, 105, .8);
 }
 
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+.dropdown-toggle::after {
+    display:none;
+}
+
 
 img {
     vertical-align: bottom;
@@ -78,11 +85,50 @@ img {
     border-top: 1px dashed #3b3b3b;
 }
 
-.light-shadow {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+
+
+.box{
+    width:100%;
+    margin:50px auto;
+    position:relative;
+    background-color:#FFF;
+    border:1px solid #FFF;
 }
+.box:before{
+    -webkit-transform: skew(0deg, 4deg);
+    box-shadow:5px 5px 5px #000;
+    position:absolute;
+    background-color:#0B1CB0;
+    bottom:-5px;
+    right:0;
+    content:'';
+    z-index:-6;
+    top: 10px;
+    width:220px;
+    height:100%;		
+    right:5px;
+}
+
+.card-no-border{
+    border: 1px solid white
+}
+
+/*==================================================
+ * Effect 1
+ * ===============================================*/
+/*.effect1{
+    box-shadow: 0 10px 6px -6px #777;
+}*/
 
 .brown{
     background: #F3F3F3;
+}
+
+.slidershadow {
+    float: left;
+    width: 100%;
+    height: 32px;
+    background: url(../img/shadow.png) no-repeat center top;
+    position: relative;
+    z-index: 999;
 }

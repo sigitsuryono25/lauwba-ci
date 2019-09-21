@@ -15,7 +15,9 @@ class News extends CI_Controller {
 
     function news_list() {
 
-        $data['news'] =$this->crud->select_other('news', "ORDER BY post_on DESC LIMIT 20")->result();
+        $data['news'] = $this->crud->select_other('news', "ORDER BY post_on DESC LIMIT 20")->result();
+        $data['detail'] = (object) array("judul" => "Lauwba News", "isi_jenis" => "Artikel/Berita Lauwba Terkini");
+        $this->load->view('headfoot/doctypedetail', $data);
         $this->load->view('news-list', $data);
     }
 
@@ -32,8 +34,11 @@ class News extends CI_Controller {
         $data['regular'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album='22' order by id_gallery desc limit 9")->result();
         $data['produk'] = $this->crud->select_other('produk', 'ORDER BY date_added DESC LIMIT 10')->result();
         $data['album'] = $this->crud->select('album')->result();
+        $data['jadwal'] = $this->crud->select_other("kelas", 'join jenis on kelas.id_jenis=jenis.id_jenis ORDER BY kelas.jadwal DESC')->result();
 
-        $data['detail'] = $this->crud->select_join('news', 'kategori1', 'id_kategori', "WHERE news.judul_seo='$param'")->row();
+        $data['news_detail'] = $this->crud->select_join('news', 'kategori1', 'id_kategori', "WHERE news.judul_seo='$param'")->row();
+        $data['detail'] = (object) array("judul" => $data['news_detail']->jdl_news, "isi_jenis" => $data['news_detail']->ket_news);
+        $this->load->view('headfoot/doctypedetail', $data);
 
         $this->load->view('news-reader', $data);
     }

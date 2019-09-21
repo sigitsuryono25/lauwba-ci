@@ -6,13 +6,13 @@
         <div class="col-md-12">
             <article class="row single-post mt-5 no-gutters">
                 <div class="col-md-12">
-                    <h3 class="lead display-4"><?php echo $detail->jdl_news ?></h3>
-                    <small><?php echo date_format(date_create($detail->post_on), 'd-m-Y H:i:s') ?></small><br />
+                    <h3 class="lead display-4"><?php echo $news_detail->jdl_news ?></h3>
+                    <!--<small><?php //echo date_format(date_create($detail->post_on), 'd-m-Y H:i:s')  ?></small><br />-->
                     <div class="image-wrapper float-left pr-3">
                         <img class="img-fluid" src="http://www.lauwba.com/img/<?php echo $detail->foto_news ?>">
                     </div>
                     <div class="single-post-content-wrapper p-3 text-justify">
-                        <?php echo $detail->ket_news ?>
+                        <?php echo $news_detail->ket_news ?>
                     </div>
                 </div>
             </article>
@@ -62,21 +62,26 @@
                 <table class="table table-striped">
                     <thead class="bg-primary text-light">
                         <tr>
+                            <th rowspan="2">Training</th>
                             <th>Kota</th>
                             <th>Jadwal</th>
                             <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($jadwal as $j) { ?>
+                            <tr>
+                                <td><?php echo $j->judul ?></td>
+                                <td><?php echo $j->kota ?><br><?php echo $j->kota1 ?></td>
+                                <td><?php echo $j->jadwal ?><br><?php echo $j->jadwal1 ?></td>
+                                <td><?php echo $j->keterangan ?><br><?php echo $j->keterangan1 ?></td>
+                            </tr>
+                        <?php } ?>
                         <?php
-                        $kota = array("Bekasi", "Bandung", "Depok", "Makassar", "Jakarta", "Palembang");
+                        $kota = array("Yogyakarta", "Bekasi", "Bandung", "Depok", "Makassar", "Jakarta", "Palembang");
                         for ($i = 0; $i < 6; $i++) {
                             ?>
-                            <tr>
-                                <td><?php echo $kota[$i] ?></td>
-                                <td>05, 06, 12, 13 Oct 2019</td>
-                                <td>Seat Available</td>
-                            </tr>
+
                         <?php } ?>
                     </tbody>
                 </table>
@@ -95,7 +100,7 @@
             <?php foreach ($kelas as $k) { ?>
                 <div class="row">
                     <div class="py-2 col-md-12 light-shadow">
-                        <div class="row">
+                        <div class="row" onclick="window.open(`<?php echo site_url($k->routes) ?>`)" style="cursor: pointer">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
                                 <img class="img-fluid" src="http://www.lauwba.com/foto_berita/<?php echo $k->gambar ?>" height="150" width="150">
                             </div>
@@ -149,7 +154,7 @@
         </div>
         <div class="col-md-12">
             <?php foreach ($lain as $l) { ?>
-                <div class="row">
+                <div class="row" onclick="window.open(`<?php echo site_url($l->routes) ?>`)" style="cursor: pointer">
                     <div class="py-2 col-md-12 light-shadow">
                         <div class="row">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
@@ -181,7 +186,7 @@
 
                                         //if the string doesn't contain any space then it will cut without word basis.
                                         $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                        $string .= '... <a class="badge badge-warning">Selengkapnya</a>';
+                                        $string .= '... <a class="badge badge-warning" >Selengkapnya</a>';
                                     }
                                     echo $string;
                                     ?>

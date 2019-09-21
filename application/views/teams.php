@@ -1,10 +1,20 @@
 <?php $this->load->view('headfoot/header') ?>
+<div class="container">
+    <div class="text-light pt-2">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="gallery">
+                    <h2 class="title1" id="titleborder"><span>Our team</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="py-3 px-4 mb-4 text-center text-white" >
     <div class="container">
         <div class="row mb-4">
             <div class="mx-auto col-md-12 text-dark pt-1">
-                <h1 class="mb-3">Our team</h1>
-                <h4>Kami mengedepankan pelayanan dan kualitas dalam memberikan solusi atas kebutuhan IT anda.</h4>
+                <h6>Kami mengedepankan pelayanan dan kualitas dalam memberikan solusi atas kebutuhan IT anda.</h6>
             </div>
         </div>
         <br>

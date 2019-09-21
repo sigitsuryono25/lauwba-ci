@@ -37,10 +37,10 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-4 pt-4 pb-4">
-        <div class="row mt-3 mb-3 d-flex justify-content-center">
-            <div class="col-md-3 m-1">
-                <div class="card text-center"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-pembuatan-website-makassar-lauwba-techno.jpg" alt="Card image cap">
+    <div class="container mt-4 pt-4 pb-4 ">
+        <div class="row mt-3 mb-3 d-flex justify-content-center ">
+            <div class="col-md-3 m-1 box mt-4">
+                <div class="card text-center"  style="border: 1px solid white"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-pembuatan-website-makassar-lauwba-techno.jpg" alt="Card image cap">
                     <div class="card-body">
                         <p class="text-uppercase teal font-weight-bold text-center">software development</p>
                         <p class="card-text text-center">Jasa Pembuatan Website, Aplikasi Android, iOS dan aplikasi custom by request. Saat ini sudah ada ratusan client kami, baik dari Perusahaan,
@@ -48,8 +48,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 m-1">
-                <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/training-web-android-lauwba-techno.jpg" alt="Card image cap">
+            <div class="col-md-3 m-1 box  mt-4">
+                <div class="card text-left" style="border: 1px solid white"> 
+                    <img class="card-img-top" src="http://www.lauwba.com/layanan/training-web-android-lauwba-techno.jpg" alt="Card image cap">
                     <div class="card-body">
                         <p class="text-uppercase teal font-weight-bold text-center">it training & course</p>
                         <p class="card-text text-center">
@@ -58,8 +59,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 m-1">
-                <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
+            <div class="col-md-3 m-1 box  mt-4 ">
+                <div class="card text-left"  style="border: 1px solid white"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
                     <div class="card-body">
                         <p class="text-uppercase teal font-weight-bold text-center">digital marketing</p>
                         <p class="card-text text-center">
@@ -78,51 +79,25 @@
             </div>
             <div class="col-md-12">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
+                    <?php
+                    define("URL_IMAGE", 'http://localhost/CodeIgniter/admin_lauwba/assets/images/produk/');
+                    foreach ($produk as $p) {
+                        ?>
+                        <div class="col-md-2 m-2 light-shadow" style="cursor: pointer">
+                            <div class="card text-left"> <img class="card-img-top" src="<?php echo URL_IMAGE . $p->gambar; ?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="font-weight-bold teal text-center"><?php echo $p->nama_produk ?></p>
+                                    <p class="card-text">
+                                    </p>
+                                </div>
+                                <div class="card-footer bg-primary text-center">
+                                    <a class="text-light">
+                                        Rp. <?php echo $this->etc->rps($p->harga) ?>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2 m-2 light-shadow">
-                        <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
-                                <p class="card-text">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -168,11 +143,25 @@
                 </div>
                 <hr>
                 <div class="col-md-4 mb-2 d-block d-md-none" onclick="window.open(`<?php echo site_url($b->routes) ?>`)" style="cursor: pointer">
-                    <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/layanan/jasa-periklanan-google-dan-facebook-makassar.jpg" alt="Card image cap">
+                    <div class="card text-left"> <img class="card-img-top" src="http://www.lauwba.com/foto_berita/<?php echo $b->gambar ?>" alt="Card image cap">
                         <div class="card-body">
                             <p class="text-uppercase teal font-weight-bold text-left">digital marketing</p>
                             <p class="card-text">
-                                Jasa SEO, Google Adwords/ads & Facebook Ads. Telah terbukti meningkatkan penjualan Dealer Resmi Mobil Suzuki Makassar, CV. Tugu Jogja, Fullbright Institute & Beberapa perusahaan lainnya</p>
+                                <?php
+                                $string = strip_tags($b->isi_jenis);
+                                if (strlen($string) > 400) {
+
+                                    // truncate string
+                                    $stringCut = substr($string, 0, 400);
+                                    $endPoint = strrpos($stringCut, ' ');
+
+                                    //if the string doesn't contain any space then it will cut without word basis.
+                                    $string = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                    $string .= '... <a class="badge badge-warning" href="' . site_url($b->routes) . '">Selengkapnya</a>';
+                                }
+                                echo $string;
+                                ?>    
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -214,7 +203,7 @@
                                 </div>
                                 <p class="my-1 text-justify">
                                     <?php
-                                    $string = strip_tags($b->isi_jenis);
+                                    $string = strip_tags($k->isi_jenis);
                                     if (strlen($string) > 300) {
 
                                         // truncate string
@@ -249,21 +238,26 @@
                 <table class="table table-striped">
                     <thead class="bg-primary text-light">
                         <tr>
+                            <th rowspan="2">Training</th>
                             <th>Kota</th>
                             <th>Jadwal</th>
                             <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($jadwal as $j) { ?>
+                            <tr>
+                                <td><?php echo $j->judul ?></td>
+                                <td><?php echo $j->kota ?><br><?php echo $j->kota1 ?></td>
+                                <td><?php echo $j->jadwal ?><br><?php echo $j->jadwal1 ?></td>
+                                <td><?php echo $j->keterangan ?><br><?php echo $j->keterangan1 ?></td>
+                            </tr>
+                        <?php } ?>
                         <?php
                         $kota = array("Yogyakarta", "Bekasi", "Bandung", "Depok", "Makassar", "Jakarta", "Palembang");
                         for ($i = 0; $i < 6; $i++) {
                             ?>
-                            <tr>
-                                <td><?php echo $kota[$i] ?></td>
-                                <td>05, 06, 12, 13 Oct 2019</td>
-                                <td>Seat Available</td>
-                            </tr>
+
                         <?php } ?>
                     </tbody>
                 </table>
@@ -280,7 +274,7 @@
         </div>
         <div class="col-md-12">
             <?php foreach ($lain as $l) { ?>
-                <div class="row mb-3">
+                <div class="row mb-3 px-3">
                     <div class="py-2 col-md-12 light-shadow">
                         <div class="row" onclick="window.open(`<?php echo site_url($l->routes) ?>`)" style="cursor: pointer">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">

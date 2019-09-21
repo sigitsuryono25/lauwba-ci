@@ -40,7 +40,10 @@
                                 <tr> <td class="jarak">Hari&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Kamis - Minggu</td> </tr>
                                 <tr> <td class="jarak">Pukul&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><?php echo $kelas1->jam_mulai; ?> - <?php echo $kelas1->jam_akhir; ?> WIB</td> </tr>
                                 <tr> <td class="jarak">Durasi&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>4 Hari </td> </tr>
-                                <tr> <td class="jarak">Biaya&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Rp. <?php echo $this->etc->rps($kelas1->biaya); ?></td> </tr>
+                                <tr> <td class="jarak">Biaya&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>
+                                        <del class="text-danger font-weight-bold">Rp. <?php echo $this->etc->rps($kelas1->biaya_coret); ?></del><br>
+                                        Rp. <?php echo $this->etc->rps($kelas1->biaya); ?>
+                                    </td> </tr>
                                 <tr> <td class="jarak">Tempat &nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><div>Lauwba</div></td> </tr>
                                 <tr> <td class="jarak">Min. Peserta&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>2 Peserta</td> </tr>
                             </tbody>
@@ -52,7 +55,10 @@
                             <tr> <td class="jarak">Hari&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Sabtu-Minggu</td> </tr>
                             <tr> <td class="jarak">Pukul&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><?php echo $kelas1->jam_mulai1; ?> - <?php echo $kelas1->jam_akhir1; ?> WIB</td> </tr>
                             <tr> <td class="jarak">Durasi&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>4 Hari </td> </tr>
-                            <tr> <td class="jarak">Biaya&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>Rp. <?php echo $this->etc->rps($kelas1->biaya1); ?></td> </tr>
+                            <tr> <td class="jarak">Biaya&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>
+                                    <del class="text-danger font-weight-bold">Rp. <?php echo $this->etc->rps($kelas1->biaya_coret1); ?></del><br>
+                                    Rp. <?php echo $this->etc->rps($kelas1->biaya1); ?>
+                                </td> </tr>
                             <tr> <td class="jarak">Tempat &nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td><div>Lauwba</div></td> </tr>
                             <tr> <td class="jarak">Min. Peserta&nbsp;&nbsp;&nbsp;&nbsp;</td><td>:</td><td>2 Peserta</td> </tr>
                             </tbody>
@@ -154,24 +160,35 @@
                 <table class="table table-striped">
                     <thead class="bg-primary text-light">
                         <tr>
+                            <th rowspan="2">Training</th>
                             <th>Kota</th>
                             <th>Jadwal</th>
                             <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $kota = array("Yogyakarta", "Bekasi", "Bandung", "Depok", "Makassar", "Jakarta", "Palembang");
-                        for ($i = 0; $i < 6; $i++) {
-                            ?>
+                        <?php foreach ($jadwal as $j) { ?>
                             <tr>
-                                <td><?php echo $kota[$i] ?></td>
-                                <td>05, 06, 12, 13 Oct 2019</td>
-                                <td>Seat Available</td>
+                                <td><?php echo $j->judul ?></td>
+                                <td><?php echo $j->kota ?><br><?php echo $j->kota1 ?></td>
+                                <td><?php echo $j->jadwal ?><br><?php echo $j->jadwal1 ?></td>
+                                <td><?php echo $j->keterangan ?><br><?php echo $j->keterangan1 ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3 px-5">
+        <div class="col-md-12 blues">
+            <div class="row blues p-2">
+                <div class="col-md-8 justift-content-center  text-center ">
+                    <p class="text-uppercase text-white font-weight-bold pt-2">KUOTA TERBATAS, SILAHKAN DAFTAR SEKARANG</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <input onclick="window.open('https://api.whatsapp.com/send?phone=6282221777206&amp;text=_*DAFTAR%20TRAINING/KURSUS%20Lauwba.com%20:*_%20%0D%0A%20===========%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0D%0A_*Nama%20:*_%20...%0D%0A%20_*Asal%20Instansi/kampus%20:*_%20...%0D%0A%20_*Kelas%20Yang%20di%20pilih%20%20:*_%20...%0D%0A%20%20%0D%0A%20Catt%20:%20_Bagi%20yg%20bukan%20utusan%20instansi%20atau%20blm%20kuliah%20cukup%20mengisi%20:%20*Pribadi*_')" type="button" value="DAFTAR VIA WA" name="daftar-via-wa" class="btn btn-light text-primary font-weight-bold"/>
+                </div>
             </div>
         </div>
     </div>
@@ -185,7 +202,7 @@
         </div>
         <div class="col-md-12">
             <?php foreach ($kelas as $k) { ?>
-            <div class="row" onclick="window.open(`<?php echo site_url($k->routes)?>`)" style="cursor: pointer">
+                <div class="row" onclick="window.open(`<?php echo site_url($k->routes) ?>`)" style="cursor: pointer">
                     <div class="py-2 col-md-12 light-shadow">
                         <div class="row">
                             <div class="text-center col-md-2 d-block align-self-center justify-content-center">
