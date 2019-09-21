@@ -12,6 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);
+define("NOT_FOUND", "Tidak ada data ditemukan");
+define("SERVER_ERROR", "Kesalahan Server");
 
 /*
 |--------------------------------------------------------------------------

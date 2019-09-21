@@ -106,7 +106,6 @@ skin : {
 },
 // END OF YOUR SETTINGS
 
-
 // declare internal properties
 preloadTheseImages : [],
 continuePreloading: true,
@@ -2652,4 +2651,6 @@ hs.addEventListener(document, 'mouseup', hs.mouseClickHandler);
 
 hs.addEventListener(document, 'ready', hs.getAnchors);
 hs.addEventListener(window, 'load', hs.preloadImages);
+
 }
+

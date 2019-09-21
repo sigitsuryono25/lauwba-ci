@@ -40,8 +40,8 @@ class Crud_m extends CI_Model {
         $query = $this->db->query("Select * from $table where $where");
         return $query;
     }
-    function select_other($table, $other){
-        $query = $this->db->query("Select * from $table $other");
+    function select_other($table, $other = NULL, $field = "*"){
+        $query = $this->db->query("Select $field from $table $other");
         return $query;
     }
 
@@ -49,10 +49,22 @@ class Crud_m extends CI_Model {
         $this->db->insert($table, $data);
         return $this->db->affected_rows();
     }
+    
+    function updateArray($table, $data, $where) {
+        $this->db->where($where);
+        $this->db->update($table, $data);
+        return $this->db->affected_rows();
+    }
 
     function update($table, $data, $field, $id) {
         $this->db->where($field, $id);
         $this->db->update($table, $data);
+        return $this->db->affected_rows();
+    }
+    
+    function deleteArray($table, $where){
+        $this->db->where($where);
+        $this->db->delete($table);
         return $this->db->affected_rows();
     }
 

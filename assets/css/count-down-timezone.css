@@ -1,0 +1,22 @@
+.wrapper {
+  text-align: center;
+}
+.time {
+    border-radius: 5px;
+    background-color: white;
+    color: #000;
+    padding: 10px;
+    font-size: 2em;
+}
+.titik-dua {
+    border-radius: 5px;
+    color: #FFF;
+    padding: 10px;
+    font-size: 3em;
+}
+.label {
+    margin-top : 10px;
+    font-size: 1em;
+    display: block;
+    color: #fff;
+}

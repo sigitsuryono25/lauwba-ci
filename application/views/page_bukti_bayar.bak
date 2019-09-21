@@ -1,0 +1,87 @@
+<?php
+$nomorBayar = $this->uri->segment(3);
+$bayar = $this->db->query("SELECT history_trans.*, pendaftar.nama_lengkap, lauwbaco_admin_lkp.jenis.judul as judul_lkp, lauwbaco_latest_lauwba.jenis.judul FROM history_trans 
+INNER JOIN pendaftar ON history_trans.id_daftar=pendaftar.id
+LEFT JOIN lauwbaco_latest_lauwba.jenis 
+ON pendaftar.training=lauwbaco_latest_lauwba.jenis.id_jenis
+LEFT JOIN lauwbaco_admin_lkp.jenis 
+ON pendaftar.training=lauwbaco_admin_lkp.jenis.id_jenis 
+WHERE history_trans.id IN ('$nomorBayar')")->row();
+$jenis = $this->input->get('jenis');
+$wordingBayar = "";
+if($jenis == "project"){
+    $wordingBayar = "Pembayaran project";
+}else{
+    $wordingBayar ="Pembayaran kelas ";
+    $wordingBayar .= ($bayar->from == "Lauwba Techno Indonesia") ? $bayar->judul : $bayar->judul_lkp. " ";
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bukti Pembayaran</title>
+  <!-- Setup for mobile device screen physical width -->
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  
+<style>
+    @media print {
+      #printPageButton {
+        display: none;
+      }
+}
+</style>
+</head>
+
+<body class="p-3">
+  <div class="container border">
+    <div class="text-end mt-2" id="printPageButton">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <a type="button" href="javascript:void(0)" class="btn btn-sm btn-outline-dark" onclick="window.print()"><i class="fa fa-print"></i> Print</a>
+          <a type="button" href="javascript:void(0)" onclick="window.print()" class="btn btn-sm btn-dark" download><i class="fa fa-download"></i> Download</a>
+        </div>
+    </div>
+    <div class="header p-2 text-center">
+      <span class="text-center h5">KWITANSI<br><small>Pembayaran</small></span>
+      <div class="text-center">
+        <small>&bull; PT Lauwba Techno Indonesia &bull; Jl. Taman Kenari No.A3, Kledokan, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281 &bull;</small>
+      </div>
+    </div>
+    <hr>
+    <p class="text-end"><b><u>No. <?= $this->uri->segment(3)?></u></b></p>
+    <table class="table-borderless">
+      <tr>
+        <td class="p-2">Sudah diterima dari</td>
+        <td class="p-2">:</td>
+        <td class="p-2"><b><?= $bayar->nama_lengkap?></b></td>
+      </tr>
+      <tr>
+        <td class="p-2">Uang sebesar</td>
+        <td class="p-2">:</td>
+        <td class="p-2">
+          <b><u><i><?= $this->etc->terbilang($bayar->jumlah_bayar)?> Rupiah</i></u></b>
+        </td>
+      </tr>
+      <tr>
+        <td class="p-2">Untuk</td>
+        <td class="p-2">:</td>
+        <td class="p-2 ">
+          <b><u><i><?= $wordingBayar?></i></u></b>
+        </td>
+      </tr>
+    </table>
+    <div class="text-end">
+      <p>Yogyakarta, <?= $this->etc->indonesiaDate(date_format(date_create($bayar->transaksi_pada), "Y-m-d"))?></p>
+    </div>
+    <span class="border p-2 ml-3 mb-5">
+      Rp. <?= $this->etc->rps($bayar->jumlah_bayar)?>,-
+    </span><br>
+    <div class="text-end mt-5">
+      <br><br>
+      <p>Kuntadi, S.P.</p>
+    </div>
+  </div>
+</body>
+
+</html>

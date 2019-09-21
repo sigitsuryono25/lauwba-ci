@@ -1,0 +1,862 @@
+<?php $this->load->view('headfoot/header') ?>
+<?= $used_header ?>
+
+<!--<div class="container mt-4">-->
+<!--    <div class="text-light pt-2">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12 " style="margin-top: 160px">-->
+<!--                <div class="newTitle1 d-none d-md-block">-->
+<!--                    <h2 class="h5 ml-5 pl-5" id="titleborder"><span>Form Pendaftaran Kursus/Training</span></h2>-->
+<!--                </div>-->
+<!--            </div>-->
+           
+              <!--Ini Untuk Mobile-->
+<!--        <div class="col-md-12 d-md-none d-none">-->
+<!--            <img src="https://server4111.com/banner-lauwba/layer-lauwba.png" width="100%" height="40px" class="bg-title"/>-->
+<!--            <div class="newTitle1Mobile" style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">-->
+<!--                <h2 class="h6 ml-5 pl-4 " id="titleborder"><span> &nbsp; &nbsp; &nbsp; &nbsp;  Form Pendaftaran Kursus/Training</span></h2>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!--Akhir dari Untuk Mobile-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+</P>&nbsp;
+</P>&nbsp;
+</br>&nbsp; <center><H2>FORM PENDAFTARAN</H2></center>
+            
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 d-block justify-content-center">
+           <iframe width="400" height="220" src="https://www.youtube.com/embed/SUPm-NARLm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           <b>Keterangan : </b><br>
+            <li>Bagi yang masih agak bingung cara daftarnya, bisa nonton video diatas </li>
+           <li>Bagi yang membutuhkan <b><i>Surat Penawaran</b></i> secara otomatis akan dikirimkan oleh sistem via email setelah mengisi Form Registrasi/pendaftaran </li> 
+           <li>Silahkan memilih  <b><i>Corporate Training </b></i>  jika pesertanya lebih dari 1 orang agar bisa mendapatkan harga yang lebih murah serta bisa request tempat serta jadwal pelaksanaannya</li>
+           <li>Penjelasan masing-masing jenis <b>Kelas</b> akan muncul setelah Anda Klik/pilih</b>
+           <li>Setelah mengisi form Pendaftaran, secara otomatis invoice serta nomor rekening akan muncul dan terkirim via email Anda </li>
+        
+        </div>
+        <div class="col-md-7">
+            <br>
+            <form class="formDaftar">
+                <input type="hidden" name="from" value="<?= (!empty($this->input->get('from'))) ? $this->input->get('from') : 'Lauwba Techno Indonesia'?>" />
+                <div class="form-group">
+                    <label for="nama-lengkap">Nama Lengkap<span class="text-danger">*</span></label>
+                    <input type="text" name="nama-lengkap" id="nama-lengkap" class="form-control" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Anda<span class="text-danger">*</span></label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="" required>
+                    <small>Diperlukan untuk mengirimkan invoice ke email anda</small>
+                </div>
+                <div class="form-group">
+                    <label for="nomor-hape">Nomor Hape (WhatsApp)<span class="text-danger">*</span></label>
+                    <input type="tel" name="nomor-hape" id="nomor-hape" class="form-control" placeholder="contoh 6282221777206" required>
+                    <small class="text-danger">Dengan 62 dan tanpa angka 0 didepan</small>
+                </div>
+                <div class="form-group">
+                    <label for="nama-instansi">Nama Perusahaan/Instansi<span class="text-primary"> (Pilihan. Bisa di isi atau dikosongkan)</span></label>
+                    <input type="text" name="nama-instansi" id="nama-instansi" class="form-control" placeholder="">
+                    <small class="text-danger">Bila ingin mendaftar In House Training maka silahkan isi kolom ini</small>
+                </div>
+                <div class="form-group">
+                    <label for="jabatan">Jabatan<span class="text-primary"> (Pilihan. Bisa di isi atau dikosongkan)</span></label>
+                    <input type="text" name="jabatan" id="jabatan" class="form-control" placeholder="">
+                    <small class="text-danger">Bila ingin mendaftar In House Training maka silahkan isi kolom ini</small>
+                </div>
+                <div class="form-group">
+                    <label for="jabatan">Pilihan Kelas <span class="text-danger">*</span></label><br>
+                    <!--<div class="form-check-inline">-->
+                    <!--  <label class="form-check-label">-->
+                    <!--    <input type="radio" class="form-check-input" name="pilihan-kelas" data-toggle="popover" value="private" title="Private Class ONLINE "data-content="Bisa Request Jadwal Sesuai Kebutuhan" data-placement="top" required checked>Private Class (ONLINE)-->
+                    <!--  </label>-->
+                    <!--</div>-->
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input disable-dulu" data-kelas='regular-class' id="regular-class" name="pilihan-kelas" data-toggle="popover" value="reg" title="Reguler Class Offline" data-content="Mengikuti Jadwal yang Tersedia" data-placement="top" required>Kelas Reguler
+                      </label>
+                    </div>
+                     <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="pilihan-kelas" data-toggle="popover" value="private-online" title="Private Class Online "data-content="Training Bisa Dari Rumah Aja" data-placement="top" required>Kelas Private  Online
+                      </label>
+                    </div>
+                    
+                    
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="pilihan-kelas"  data-toggle="popover" value="inkubator" title="Inkubator" data-content="Kelas inkubator adalah kelas yang pelaksanaanya selama 3 bulan full day dengan dibimbing dari nol didalam membuat project sampai selesai. Tujuan dari kelas ini adalah untuk melahirkan pelaku startup baru dan programmer yang siap memasuki dunia kerja." data-placement="top" required>Kelas Bootcamp (Inkubator)
+                      </label>
+                    </div>
+                    
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="pilihan-kelas" data-toggle="popover" value="private-offline" title="Private Class Offline "data-content="Bisa Request Jadwal Sesuai Kebutuhan" data-placement="top" required>Kelas Private  Offline
+                      </label>
+                    </div>
+
+
+                    <!-- <div class="form-check-inline">-->
+                    <!--  <label class="form-check-label">-->
+                    <!--    <input type="radio" class="form-check-input disable-dulu" data-kelas='regular-class-online' id="regular-class-online" name="pilihan-kelas" data-toggle="popover" value="reg-online" title="Reguler Class Online" data-content="Mengikuti Jadwal yang Tersedia" data-placement="top" required>Kelas Reguler  Online-->
+                    <!--  </label>-->
+                    <!--</div>-->
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="pilihan-kelas"  data-toggle="popover" value="in-house" title="In House Training" data-content="Jadwal dan Tempat pelaksanaan berdasarkan permintaan instansi/klien" data-placement="top" required>Corporate Training
+                      </label>
+                    </div> 
+                </div>
+                
+                
+                <!--inkubator class-->
+                <div class="inkubator d-none d-md-none">
+                    <small><b>Kelas Bootcamp</b> adalah kelas yang pelaksanaanya selama 1 sampai 6 bulan full day dengan dibimbing dari nol didalam membuat project sampai selesai. Tujuan dari kelas ini adalah untuk melahirkan pelaku startup baru dan programmer yang siap memasuki dunia kerja. </small>
+                    <hr>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Durasi Pelaksanaan (bulan)</label>
+                                    <select name="durasi-kelas-inkubator" class="form-control inkubator-input">
+                                        <option value="">--Silahkan Pilih--</option>
+                                        <option value="2" selected>2 Bulan</option>
+                                        <option value="3">3 Bulan</option>
+                                        <option value="4">4 Bulan</option>
+                                        <option value="5">5 Bulan</option>
+                                        <option value="6">6 Bulan</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Mulai <span class="text-danger">* <br> #Kelas baru buka setiap hari</span></label>
+                                <input type="date" class="form-control inkubator-input" name="tanggal-mulai-inkubator"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="training">Training yang pilih<span class="text-danger">*</span> </label>
+                        <select name="training-inkubator" id="training" class="form-control  inkubator-input text-capitalize">
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach($training as $train){?>
+                                <option value="<?php echo $train->id_jenis?>" class="text-capitalize"><?php echo $train->judul?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <!--Inkubator-->
+                
+                
+                <!--in house training-->
+                <div class="in-house d-none d-md-none">
+                    <small><b>Inhouse</b> Jadwal dan Tempat pelaksanaan berdasarkan permintaan instansi/klien</small>
+                    <hr>
+                    <div class="form-group in-house">
+                        <label for="kota">Kota Pelaksanaan (Bisa Request Online/Offline)<span class="text-danger">*</span></label>
+                        <textarea class="form-control  in-house-input" row=6 name="kota-in-house"></textarea>
+                    </div>
+                    <div class="form-group in-house">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Mulai <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control  in-house-input" name="tanggal-mulai-in-house" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Selesai <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control  in-house-input" name="tanggal-selesai-in-house" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="training">Training yang pilih<span class="text-danger">*</span> </label>
+                        <select name="training-in-house" id="training" class="form-control  in-house-input  text-capitalize">
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach($training as $train){?>
+                                <option value="<?php echo $train->id_jenis?>" class="text-capitalize"><?php echo $train->judul?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                      <div class="form-group in-house">
+                        <label for="jumlah-peserta">Jumlah Peserta</span></label>
+                        
+                        <select class="form-control  in-house-input" name="jumlah-peserta">
+                            <option value="">--Silahkan Pilih--</option>
+                        <?php for($i = 1; $i <=50; $i++){?>
+                            <option value="<?php echo $i?>"><?php echo $i?> Peserta</option>
+                        <?php }?>
+                        </select>
+                        <small>
+                            <span class="font-weight-bold">Ket:</span><br>
+                            1-2 Peserta Rp. 4,990rb/Peserta<br>
+                            3-5 Peserta Rp. 3,9Jt/Peserta<br>
+                            6 Peserta atau lebih Rp. 3,5Jt/Peserta<br>
+
+                        </small>
+                    </div>
+                </div>
+                <!--in house training-->
+                
+                <!--private class-->
+                <div class="private-offline d-none d-md-none">
+                    <small><b>Private Offline</b> Pelaksanaan di kantor kami di Yogyakarta &  Bisa Request Jadwal & Lokasi Pelaksanaan Sesuai Kebutuhannya </small>
+                    <hr>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Mulai <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control private-input-offline" name="tanggal-mulai-private-offline" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="kota">Pilih Kota Pelaksanaan Private<span class="text-danger">*</span></label>
+                        <select name="kota-private-offline" id="kota" class="form-control  private-input-offline">
+                            <option value="">--Silahkan Pilih--</option>
+                            <option value="yogyakarta">Yogyakarta</option>
+                            <option value="luar-yogyakarta">Luar Kota</option>
+                        </select>
+                    </div>
+                    <div class="form-group alamat-luar-kota d-none">
+                        <label for="kota">Alamat<span class="text-danger">*</span></label>
+                        <textarea class="form-control private-input-offline" name="alamat-private-offline" id="alamat-priv-offline"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="training">Training yang pilih<span class="text-danger">*</span> </label>
+                        <select name="training-private-offline" id="training" class="form-control  private-input-offline text-capitalize">
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach($training as $train){?>
+                                <option value="<?php echo $train->id_jenis?>" class="text-capitalize"><?php echo $train->judul?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <!--Private-->
+                
+                <!--private class online-->
+                <div class="private-online  d-none d-md-none">
+                    <small><b>Private Online </b> Training From Home | Belajar Jarak Jauh Dengan Bimbingan Trainer Live Session via Video Call & Remote Control | Bisa Request Jadwal Sesuai Kebutuhannya | </small>
+                    <hr>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tanggal Mulai <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control private-input-online" name="tanggal-mulai-private-online" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="training">Training yang pilih<span class="text-danger">*</span> </label>
+                        <select name="training-private-online" id="training" class="form-control  private-input-online text-capitalize">
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach($training as $train){?>
+                                <option value="<?php echo $train->id_jenis?>" class="text-capitalize"><?php echo $train->judul?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <!--Private-->
+                
+                <div class="reguler d-none d-md-none">
+                    <small><b><i>Mengikuti silabus serta jadwal yang tersedia(klik menu jadwal), </b></i> </small>
+                    <hr>
+                    <div class="form-group reguler ">
+                        <label for="kota">Pilih Kota Pelaksanaan<span class="text-danger">*</span></label>
+                        <select name="kota" id="kota" class="form-control reguler-input" required>
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach($kota as $kot){?>
+                            <option value="<?php echo $kot->daerah?>"><?php echo $kot->daerah?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="training">Training yang pilih<span class="text-danger">*</span> </label>
+                        <select name="training" id="training" class="form-control reguler-input  text-capitalize" required>
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach($training as $train){?>
+                                <option value="<?php echo $train->id_jenis?>" class="text-capitalize"><?php echo $train->judul?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group  reguler ">
+                        <label for="jadwal">Jadwal yang dipilih<span class="text-danger">*</span></label>
+                        <select name="jadwal" id="jadwal" class="form-control reguler-input" required>
+                            <option value="">--Silahkan Pilih--</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                
+                <!--REGULER ONLINE-->
+                 <div class="reguler-online d-none d-md-none">
+                    <small>
+                        <b><i>
+                            Mengikuti silabus serta jadwal yang tersedia(klik menu <a href= "https://lauwba.com/infront/jadwal/"> jadwal </a>), 
+                        </i></b>
+                        dan dilaksanakan secara online via aplikasi Zoom (Tatap Muka Langsung dengan Trainer)
+                    </small>
+                    <hr>
+                    <!--<div class="form-group reguler-online d-none">-->
+                    <!--    <label for="kota">Pilih Kota Pelaksanaan<span class="text-danger">*</span></label>-->
+                    <!--    <input name="kota" id="kota" class="form-control reguler-online-input" value="Yogyakarta" required readonly>-->
+                    <!--</div>-->
+                    <div class="form-group">
+                        <label for="training">Training yang pilih<span class="text-danger">*</span> </label>
+                        <select name="training-reg-online" id="training" class="form-control reguler-online-input  text-capitalize" required>
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php foreach($training as $train){?>
+                                <option value="<?php echo $train->id_jenis?>" class="text-capitalize"><?php echo $train->judul?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group reguler-online">
+                        <label for="jadwal">Jadwal yang dipilih<span class="text-danger">*</span></label>
+                        <select name="jadwal-reg-online" id="jadwal" class="form-control reguler-online-input" required>
+                            <option value="">--Silahkan Pilih--</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                
+                <!--END OF REGULER ONLINE-->
+                
+                <div class="card my-2 voucher-container d-none">
+                    <div class="card-body shadow-sm bg-warning">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Punya Voucher? </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control text-uppercase font-weight-bold" name="voucher" value="<?= $this->input->get('voucher')?>" placeholder="masukin kode voucher disini"/>
+                                <div class="input-group-append">
+                                    <a class="btn btn-success text-white check-voucher">Proses</a>
+                                </div>
+                            </div>
+                            <small class="text-primary font-weight-bold">Klik Proses Untuk Mengaplikasikan Voucher <?= $this->input->get('voucher')?></small>
+                            <p class="msg font-weight-bold mt-2"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group d-none d-md-none harga">
+                    <label for="harga">Kontribusi<span class="text-danger">*</span></label>
+                    <br>
+                    <h4 class="biaya-text h3"></h4>
+                    <input type="hidden" readonly class="form-control-plaintext" name="harga" required>
+                </div>
+                <div class="form-group">
+                    <label for="tahu-darimana">Mengetahui Lauwba Techno Indonesia dari mana<span class="text-danger">*</span> </label>
+                    <textarea name="tahu-darimana" id="tahu-darimana" cols="30" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="motivasi">Motivasi Mengikuti Training</label>
+                    <textarea name="motivasi" id="motivasi" cols="30" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="keterangan">Keterangan Tambahan</label>
+                    <textarea name="keterangan" id="keterangan" cols="30" class="form-control"></textarea>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" value="Simpan" class="btn btn-lg btn-primary" name="simpan">
+                </div>
+            </form>
+            <!--<p class="text-danger">Untuk Kelas <span class="font-weight-bold">Private, Inhouse dan Inkubator</span> silahkan mendaftar via WA. Klik <a target="_blank" href="https://api.whatsapp.com/send?phone=6282221777206&text=_*DAFTAR%20TRAINING/KURSUS%20Lauwba.com%20:*_%20%0D%0A%20===========%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0D%0A_*Nama%20:*_%20...%0D%0A%20_*Asal%20Instansi/kampus%20:*_%20...%0D%0A%20_*Kelas%20Yang%20di%20pilih%20%20:*_%20...%0D%0A%20%20%0D%0A%20Catt%20:%20_Bagi%20yg%20bukan%20utusan%20instansi%20atau%20blm%20kuliah%20cukup%20mengisi%20:%20*Pribadi*_">-->
+            <!--    disini-->
+            <!--</a></p>-->
+        </div>
+    </div>
+</div>
+<!--<a class="btn btn-primary" data-target="#modal-transfer" data-toggle="modal"> click aku</a>-->
+<div class="modal fade" id="modal-transfer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informasi Pembayaran</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+          <p>Terima Kasih telah melakukan pendaftaran</p>
+          <p>Silahkan melakukan pembayaran sebesar <span class='nominal font-weight-bold'></span> melalui nomor rekening dibawah ini</p>
+          <div class="text-center">
+              
+          <img class="img-fluid w-50 text-center" src="https://www.lauwba.com/411/assets/images/rek-lauwba.png" />
+          </div><br>
+          <p class="font-weight-bold">Legalitas Perusahaan</p>
+          <p >SKT.KEMENKUMHAM RI <br>NO AHU-0022789.AH.01.01</p>
+          <p >Nomor NPWP : 91.302.590.4-541.000</p>
+          <p >PT. Lauwba Techno Indonesia </p><br>
+          
+          <p class="font-weight-bold text-danger"><i>Ctt: Harap simpan informasi pembayaran ini</i></p>
+          
+          <a class="btn btn-primary" href="<?php echo site_url('invoices/'. $row->nextid)?>" target="_blank">Lihat Invoice</a>
+      </div>
+      <!--<div class="modal-footer">-->
+      <!--  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+      <!--  <button type="button" class="btn btn-primary">Save changes</button>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+<script>
+    var kotaJogja = 0;
+    var idJenis = -1;
+    var kotaSelected = "";
+    var biaya = 0;
+    var online = "";
+    var data = "reg"
+    var pilkel = "reg";
+    $("[name='kota']").change(function(){
+        kotaSelected = $(this).val();
+        if(kotaSelected == "Yogyakarta"){
+             kotaJogja = 0;
+            console.log(kotaJogja);
+        }else{
+            kotaJogja = 1;
+            console.log(kotaJogja);
+        }
+    });
+    $("[name='pilihan-kelas']").click(function(){
+        $(".harga").removeClass("d-block d-md-block").addClass("d-none d-md-none");
+       data = $(this).val();
+       pilkel = $(this).val();
+       showVoucher(false);
+       if(data == "reg"){
+           $(".reguler").addClass("d-md-block d-block").removeClass('d-md-none d-none');
+           $(".reguler-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-offline").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".in-house").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           
+           $(".reguler-input").prop('required',true);
+           $(".private-input-offline").prop('required',false);
+           $(".in-house-input").prop('required',false);
+           $(".reguler-online-input").prop('required',false);
+           $(".private-input-online").prop('required',false);
+           
+           online = "";
+           
+           $(".private-input-offline").val("");
+           $(".in-house-input").val("");
+           
+       }else if(data == "reg-online"){
+           $(".reguler-online").addClass("d-md-block d-block").removeClass('d-md-none d-none');
+           $(".reguler").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-offline").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".in-house").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           
+           kotaSelected = "Yogyakarta";
+           online = "0";
+           
+           $(".reguler-input").prop('required',false);
+           $(".private-input-offline").prop('required',false);
+           $(".in-house-input").prop('required',false);
+           $(".private-input-online").prop('required',false);
+           
+           $(".private-input-offline").val("");
+           $(".in-house-input").val("");
+           
+       }else if(data == "private-offline"){
+           $(".reguler").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".reguler-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-offline").addClass("d-md-block d-block").removeClass('d-md-none d-none');
+           $(".private-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".in-house").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".inkubator").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           online = "";
+           
+           $(".reguler-input").val("");
+           $(".in-house-input").val("");
+           
+           $(".reguler-input").prop('required',false);
+           $(".private-input-offline").prop('required',true);
+           $(".in-house-input").prop('required',false);
+           $(".reguler-online-input").prop('required',false);
+           $(".private-input-online").prop('required',false);
+           $(".inkubator-input").prop('required',false);
+       }else if(data == "private-online"){
+           $(".reguler").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".reguler-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-offline").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-online").addClass("d-md-block d-block").removeClass('d-md-none d-none');
+           $(".in-house").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".inkubator").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           online = "";
+           
+           $(".reguler-input").val("");
+           $(".in-house-input").val("");
+           
+           $(".reguler-input").prop('required',false);
+           $(".private-input-offline").prop('required',false);
+           $(".private-input-online").prop('required',true);
+           $(".reguler-online-input").prop('required',false);
+           $(".in-house-input").prop('required',false);
+           $(".inkubator-input").prop('required',false);
+           
+       }else if(data == "in-house"){
+           $(".reguler").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".reguler-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-offline").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".in-house").addClass("d-md-block d-block").removeClass('d-md-none d-none');
+           $(".inkubator").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           online = "";
+           
+           $(".reguler-input").prop('required',false);
+           $(".private-input-offline").prop('required',false);
+           $(".reguler-online-input").prop('required',false);
+           $(".in-house-input").prop('required',true);
+           $(".private-input-online").prop('required',false);
+           $(".inkubator-input").prop('required',false);
+           
+           $(".reguler-input").val("");
+           $(".private-input-offline").val("");
+       }else if(data == "inkubator"){
+           $(".reguler").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".reguler-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-offline").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".private-online").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".in-house").addClass("d-md-none d-none").removeClass('d-md-block d-block');
+           $(".inkubator").addClass("d-md-block d-block").removeClass('d-md-none d-none');
+           online = "";
+           
+           $(".reguler-input").prop('required',false);
+           $(".private-input-offline").prop('required',false);
+           $(".reguler-online-input").prop('required',false);
+           $(".in-house-input").prop('required',false);
+           $(".private-input-online").prop('required',false);
+           $(".inkubator-input").prop('required',true);
+           
+           $(".reguler-input").val("");
+           $(".private-input-offline").val("");
+       }
+    });
+    
+    $("[name='jumlah-peserta']").change(function(){
+        var selected = $(this).val();
+        var harga = 0;
+        if(selected >= 1 && selected <= 2){
+            harga = 4990000;
+        }else if(selected >= 3 && selected <= 4){
+            harga = 3900000;
+        }else if(selected >= 6 && selected <= 100){
+            harga = 3500000;
+        }
+            showVoucher(true);
+        biaya = harga * selected;
+        $(".harga").removeClass("d-none d-md-none").addClass("d-block d-md-block");
+        $("[name='harga']").val(biaya);
+        $(".biaya-text").html("");
+        // $(".biaya-text").addClass("badge badge-success text-center");
+        $(".biaya-text").append("<span class='biaya-formatted h3 badge badge-success text-center'>"+ convertToRupiah(biaya) +"</span>")
+        // $(".biaya-text").html("<span class='h3'>" + convertToRupiah(biaya) + "</span>");
+        
+    });
+    
+    $("[name='training']").change(function(){
+        idJenis = $(this).val();
+        var url = "<?php echo site_url('welcome/jadwal/')?>" + kotaSelected;
+        console.log(url);
+        $.ajax({
+            url : url,
+            type : "GET",
+            success : function(d,t,jq){
+               $("[name='jadwal']").html(d);
+            },
+            error : function(j, t, e){
+                
+                console.log(JSON.stringify(j));
+            }
+        });
+    });
+    $("[name='training-reg-online']").change(function(){
+        idJenis = $(this).val();
+        var url = "<?php echo site_url('welcome/jadwal/')?>" + kotaSelected;
+        console.log(url);
+        $.ajax({
+            url : url,
+            type : "GET",
+            success : function(d,t,jq){
+               $("[name='jadwal-reg-online']").html(d);
+            },
+            error : function(j, t, e){
+                
+                console.log(JSON.stringify(j));
+            }
+        });
+    });
+    
+    $("[name='jadwal']").change(function(){
+        var url = "<?php echo site_url('welcome/biaya_luar_kota/')?>" + idJenis + "/" + kotaJogja + "/" + online;
+        $(".harga").css("background-image", "<?php echo base_url('assets/img/loader.gif')?>");
+        console.log(url);
+        $.ajax({
+            url : url,
+            type : "GET",
+            dataType : 'json',
+            success : function(d,t,q){
+                biaya = d.biaya_clear;
+                $(".harga").removeClass("d-none d-md-none").addClass("d-block d-md-block");
+                $("[name='harga']").val(d.biaya_clear);
+                $(".biaya-text").html(d.biaya_text);
+                $(".harga").css("background-image", "none");
+            },
+            error : function(j,t,e){
+                
+            }
+        });
+    });
+    $("[name='jadwal-reg-online']").change(function(){
+        var url = "<?php echo site_url('welcome/biaya_luar_kota/')?>" + idJenis + "/" + kotaJogja + "/" + online;
+        $(".harga").css("background-image", "<?php echo base_url('assets/img/loader.gif')?>");
+        console.log(url);
+        $.ajax({
+            url : url,
+            type : "GET",
+            dataType : 'json',
+            success : function(d,t,q){
+                biaya = d.biaya_clear;
+                $(".harga").removeClass("d-none d-md-none").addClass("d-block d-md-block");
+                $("[name='harga']").val(d.biaya_clear);
+                $(".biaya-text").html(d.biaya_text);
+                $(".harga").css("background-image", "none");
+            },
+            error : function(j,t,e){
+                
+            }
+        });
+    });
+    
+    //kota selected private
+    var kotaPrivate = 0;
+    $("[name='training-private-offline']").change(function(){
+       showLoading()
+        var data = $(this).val();
+        var url = "<?php echo site_url('welcome/biaya_private/')?>" + data + "/" + privLuarKota;
+        $.ajax({
+            url : url,
+            type : "GET",
+            dataType : 'json',
+            success : function(d,t,q){
+                biaya = d.biaya_clear;
+                $(".harga").removeClass("d-none d-md-none").addClass("d-block d-md-block");
+                $("[name='harga']").val(d.biaya_clear);
+                $(".biaya-text").html(d.biaya_text);
+                $(".harga").css("background-image", "none");
+            stopLoading();
+            showVoucher(true);
+           
+            },
+            error : function(j,t,e){
+                
+            }
+        });
+    });
+    
+    $("[name='training-private-online']").change(function(){
+       showLoading()
+        var data = $(this).val();
+        var url = "<?php echo site_url('welcome/biaya_private_online/')?>" + data;
+        $.ajax({
+            url : url,
+            type : "GET",
+            dataType : 'json',
+            success : function(d,t,q){
+                biaya = d.biaya_clear;
+                $(".harga").removeClass("d-none d-md-none").addClass("d-block d-md-block");
+                $("[name='harga']").val(d.biaya_clear);
+                $(".biaya-text").html(d.biaya_text);
+                $(".harga").css("background-image", "none");
+                stopLoading();
+                showVoucher(true);
+            },
+            error : function(j,t,e){
+                
+            }
+        });
+    });
+    var privLuarKota = "0";
+    $('[name="kota-private-offline"').on('change', function(){
+        var v = $(this).val();
+        if(v == "luar-yogyakarta"){
+            privLuarKota = "1";
+            $('.alamat-luar-kota').removeClass('d-none');
+            
+            
+        }else{
+            $('.alamat-luar-kota').addClass('d-none');
+           $("#alamat-priv-offline").prop('required',false);
+        }
+    })
+    
+    $('[name="durasi-kelas-inkubator"]').on('change', function(){
+        // var v = $(this).val();
+        // if(v == ""){
+           $('[name="training-inkubator"]').val("");
+           $(".harga").removeClass("d-block d-md-block").addClass("d-none d-md-none");
+           $("[name='harga']").val("");   
+        // }
+    });
+    
+    $('[name="training-inkubator"]').change(function(){
+       showLoading()
+        var data = $(this).val();
+        var durasi = $('[name="durasi-kelas-inkubator"]').val();
+        var url = "<?php echo site_url('welcome/biaya_incubator/')?>" + data + "/" + durasi;
+        $.ajax({
+            url : url,
+            type : "GET",
+            dataType : 'json',
+            success : function(d,t,q){
+                biaya = d.total_clear;
+                $(".harga").removeClass("d-none d-md-none").addClass("d-block d-md-block");
+                $("[name='harga']").val(d.total_clear);
+                $(".biaya-text").html(d.biaya_text);
+                $(".harga").css("background-image", "none");
+           stopLoading();
+           showVoucher(true);
+            },
+            error : function(j,t,e){
+                
+            }
+        });
+    });
+    
+    $(".formDaftar").submit(function(e){
+        e.preventDefault();
+        var action="<?php echo site_url('welcome/proses_pendaftaran')?>"
+        var data = $(this).serialize();
+        var confi = confirm("Apakah data yang dimasukkan sudah benar ?");
+        var telpon = $("#nomor-hape").val();
+        console.log(data);
+        // if()
+        if(confi){
+            $("#loading-modal").modal('show');
+             $.ajax({
+              url : action,
+              data : data,
+              type: 'POST',
+              dataType:'json',
+              success : function(d,t,j){
+                  $("#loading-modal").modal('hide');
+                  var error = d.error;
+                  var nextid = d.nextid;
+                  if(error == 200 ){
+                      alert("Pendaftaran Berhasil. Klik OK Untuk Membuka halaman Invoice. Invoice juga telah dikirimkan ke email anda");
+                    //   $(".nominal").html($("[name='harga']").val());
+                    //   $("#modal-transfer").modal('show');
+                    window.location.assign("<?php echo site_url('invoices/')?>" + nextid);
+                  }else{
+                      alert("Terjadi Kesalahan. Jika masih berlanjut, silahkan hubungi CS");
+                  }
+                  console.log(JSON.stringify(j));
+              },
+              error : function(j, d, e){
+                    $("#loading-modal").modal('hide');
+                    alert(d);
+                    console.log(JSON.stringify(j));
+              }
+            });
+        }
+    });
+    
+    $(".check-voucher").on("click", function(){
+       showLoading()
+       let voucher = $('[name="voucher"]') .val();
+       let datas = {
+           'voucher' : voucher
+       };
+       
+       let url = "<?php echo site_url('welcome/diskon')?>";
+       $.post(url, datas, function(d){
+          let potongan =d.potongan;
+          if(pilkel == "inkubator"){
+              $('.total-formatted').html(convertToRupiah(biaya-potongan));
+              $('[name="harga"]').val(biaya-potongan)
+          }else{
+            $('.biaya-formatted').html(convertToRupiah(biaya-potongan));
+            $('[name="harga"]').val(biaya-potongan)
+          }
+           if(potongan != "0" || potongan != 0){
+               $(".msg").html(d.message)
+               $(".msg").addClass("text-success").removeClass("text-danger");
+               $(".hemat").html(". Anda Hemat " + convertToRupiah(potongan));
+           }else{
+               $(".msg").html(d.message)
+               $(".msg").addClass("text-danger").removeClass("text-success");
+               $('[name="harga"]').val(biaya);
+               $('.biaya-formatted').html(convertToRupiah(biaya));
+               $('.total-formatted').html(convertToRupiah(biaya));
+               $(".hemat").html("");
+           }
+           stopLoading();
+       }, 'JSON')
+    });
+    
+    function showVoucher(isShow = false){
+        if(isShow){
+            $(".voucher-container").addClass("d-block").removeClass("d-none");
+        }else{
+            $(".voucher-container").addClass("d-none").removeClass("d-block");
+        }
+        // $('[name="voucher"]').val("");
+        $(".msg").html("");
+    }
+    
+    function convertToRupiah(angka)
+    {
+    	var rupiah = '';		
+    	var angkarev = angka.toString().split('').reverse().join('');
+    	for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
+    	return 'Rp. '+rupiah.split('',rupiah.length-1).reverse().join('');
+    }
+    
+</script>
+<!-- Modal -->
+<div class="modal fade" id="loading-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered border-0">
+      <div class="modal-content bg-transparent border-0">
+        
+        <!-- Modal body -->
+        <div class="modal-body text-center">
+          <div class="d-flex justify-content-center mb-3">
+         	 <img src="https://lauwba.com/assets/img/lauwba.gif" width="100" height="100" class="img-fluid"/>
+          </div>
+          <h3><span class="badge badge-success">Silahkan tunggu<br><br>Sedang Mengirimkan Invoice</span></h3>
+        </div>
+                
+      </div>
+    </div>
+</div>
+
+<script>
+var isEmbedHeader = "<?php if(isset($_GET['used_header'])){ echo 1;}else{ echo 0;} ?>";
+var isEmbedFooter = "<?php if(isset($_GET['used_footer'])){ echo 1;}else{ echo 0;} ?>";
+console.log(isEmbedHeader);
+console.log(isEmbedFooter);
+    $(document).ready(function(){
+        if(isEmbedHeader == "1"){
+            $("#topbar").addClass("d-none"); 
+        }
+        if(isEmbedFooter == "1"){
+            $(".footer_graph").addClass("d-none"); 
+            $(".footer1").addClass("d-none"); 
+            $("#back-to-top").addClass("d-none"); 
+        }
+    });
+</script>
+<?php $this->load->view('headfoot/footer')?>
