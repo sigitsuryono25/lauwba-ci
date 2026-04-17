@@ -126,6 +126,10 @@ img {
     position:absolute;
     background-color:#0B1CB0;
     bottom:-5px;
+<<<<<<< HEAD
+=======
+    right:0;
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56
     content:'';
     z-index:-6;
     top: 10px;
@@ -156,6 +160,7 @@ img {
     background: url(../img/shadow.png) no-repeat center top;
     position: relative;
     z-index: 999;
+<<<<<<< HEAD
 }
 
 .float{
@@ -174,4 +179,6 @@ img {
 
 .my-float{
 	margin-top:15px;
+=======
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56
 }

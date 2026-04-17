@@ -60,6 +60,7 @@ $route['reader/(:any)'] = 'News/news_reader/$1';
 $route['infront/teams'] = 'welcome/team';
 $route['infront/contact'] = 'welcome/contact';
 $route['infront/portofolio'] = 'welcome/portofolio';
+<<<<<<< HEAD
 $route['portofolio/detail/(:any)'] = 'welcome/portofolio_selengkapnya/$1';
 $route['infront/careers'] = 'welcome/profile/careers';
 $route['infront/clients'] = 'welcome/profile/clients';
@@ -138,3 +139,11 @@ $route['my-lauwba/affiliation'] = 'my_lauwba_api/Akun/getAffiliationReward';
 $route['my-lauwba/my-affiliation-list'] = 'my_lauwba_api/Akun/getUserUsedMyAffiliate';
 $route['my-lauwba/my-history-disbursement'] = 'my_lauwba_api/Akun/getPengajuanPencairan';
 $route['my-lauwba/my-disbursement'] = 'my_lauwba_api/Akun/pengajuanPencairanSaldo';
+=======
+$route['infront/news'] = 'News/news_list';
+$route['profile/(:any)'] = 'welcome/profile/$1';
+$route['infront/layanan-(:any).html'] = 'welcome/static_page/$1';
+$route['kursus/(:any)'] = 'welcome/kursus/$1';
+$route['sov-def/(:any)'] = 'welcome/soft_dev/$1';
+$route['product/(:any)'] = 'welcome/soft_dev/$1';
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56

@@ -30,20 +30,33 @@ class Kelas extends CI_Controller {
         $data['desktop'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album in ('26', '18') order by id_gallery desc LIMIT 0,9")->result();
         $data['produk'] = $this->crud->select_other('produk', 'ORDER BY date_added DESC LIMIT 10')->result();
         $data['album'] = $this->crud->select('album')->result();
+<<<<<<< HEAD
 //        $data['jadwal'] = $this->crud->select_other("kelas", 'join jenis on kelas.id_jenis=jenis.id_jenis ORDER BY kelas.jadwal DESC')->result();
         // $data['jadwal'] = $this->crud->select_other('jadwal', 'INNER JOIN jenis ON jadwal.id_jenis=jenis.id_jenis INNER JOIN kelas on jenis.id_jenis=kelas.id_jenis GROUP BY jadwal.kota_pelaksanaan  ORDER BY tanggal ASC')->result();
         $data['jadwal'] = $this->crud->select_other('jadwal', "LEFT JOIN jenis ON jadwal.id_jenis=jenis.id_jenis LEFT JOIN kelas on jenis.id_jenis=kelas.id_jenis  WHERE jadwal.active IN ('Y') GROUP BY jadwal.kota_pelaksanaan  ORDER BY tanggal ASC")->result();
 
         $segment = $this->uri->segment(1);
         $data['segment'] = $segment;
+=======
+        $data['jadwal'] = $this->crud->select_other("kelas", 'join jenis on kelas.id_jenis=jenis.id_jenis ORDER BY kelas.jadwal DESC')->result();
+
+        $segment = $this->uri->segment(1);
+        $data['segment'] = $segment;
+
+        $data['detail'] = $this->crud->select_where('jenis', "jenis.routes='$segment'")->row();
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56
 
         $routes = array('bimbingan-teknis-pengelolaan-fotografi-dan-videografi-bagi-pemerintah-daerah-35.html', 'bimbingan-teknis-membangun-sistem-informasi-dan-administrasi-desa-berbasis-android--website-34.html',
             'in-house-training-27.html', 'incubator-class-android-26.html', 'private-class-web-android-25.html');
 
+<<<<<<< HEAD
         
         // $id_produk = $data['detail']->id_jenis;
         // $data['tag'] = $this->crud->select_other("tag", "WHERE id_kolom='$id_produk'")->result();
         
+=======
+        $this->load->view('headfoot/doctypedetail', $data);
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56
         if (in_array($segment, $routes)) {
             $data['detail'] = $this->db->query("SELECT * FROM `jenis` WHERE jenis.routes IN('$segment')")->row();
             $data['tag'] = $this->crud->select_other("tag", "WHERE id_kolom='".$data['detail']->id_jenis."'")->result();

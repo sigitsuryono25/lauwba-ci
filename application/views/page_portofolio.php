@@ -1,5 +1,20 @@
 <?php $this->load->view('headfoot/header') ?>
+<<<<<<< HEAD:application/views/page_portofolio.php
 <div class="container mt-4">
+=======
+<div class="container">
+    <div class="text-light pt-2">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="gallery">
+                    <h2 class="title1" id="titleborder"><span>Project Portoflio</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56:application/views/portofolio.php
     <div class="row px-4 mt-4">
         <div class="col-md-12 pt-4" style="margin-top: 120px;">
             <div class="row">

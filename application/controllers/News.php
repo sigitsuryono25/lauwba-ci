@@ -15,6 +15,7 @@ class News extends CI_Controller {
     
     function daftar_berita() {
 
+<<<<<<< HEAD
         $data['kategori'] = $this->crud->select_other("kategori", "ORDER BY id_kategori ASC")->result();
         // $data['news'] = $this->crud->select_other('news', "INNER JOIN kategori WHERE news.id_kategori=kategori.id_kategori ORDER BY post_on DESC LIMIT 60")->result();
         $data['detail'] = (object) array("judul" => "Lauwba News", "isi_jenis" => "Artikel/Berita Lauwba Terkini");
@@ -41,6 +42,14 @@ class News extends CI_Controller {
         $this->load->view('headfoot/doctypedetail', $data);
         $this->load->view('page_berita_by_category', $data);
         
+=======
+    function news_list() {
+
+        $data['news'] = $this->crud->select_other('news', "ORDER BY post_on DESC LIMIT 20")->result();
+        $data['detail'] = (object) array("judul" => "Lauwba News", "isi_jenis" => "Artikel/Berita Lauwba Terkini");
+        $this->load->view('headfoot/doctypedetail', $data);
+        $this->load->view('news-list', $data);
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56
     }
 
     //put your code here
@@ -61,6 +70,7 @@ class News extends CI_Controller {
         $data['desktop'] = $this->crud->select_other('gallery', "join album on album.id_album=gallery.id_album where gallery.id_album in ('26', '18') order by id_gallery desc LIMIT 0,9")->result();
         $data['produk'] = $this->crud->select_other('produk', 'ORDER BY date_added DESC LIMIT 10')->result();
         $data['album'] = $this->crud->select('album')->result();
+<<<<<<< HEAD
 //        $data['jadwal'] = $this->crud->select_other("kelas", 'join jenis on kelas.id_jenis=jenis.id_jenis ORDER BY kelas.jadwal DESC')->result();
         // $data['jadwal'] = $this->crud->select_other('jadwal', 'INNER JOIN jenis ON jadwal.id_jenis=jenis.id_jenis INNER JOIN kelas on jenis.id_jenis=kelas.id_jenis GROUP BY jadwal.kota_pelaksanaan  ORDER BY tanggal ASC')->result();
         $data['jadwal'] = $this->crud->select_other('jadwal', "LEFT JOIN jenis ON jadwal.id_jenis=jenis.id_jenis LEFT JOIN kelas on jenis.id_jenis=kelas.id_jenis  WHERE jadwal.active IN ('Y') GROUP BY jadwal.kota_pelaksanaan  ORDER BY tanggal ASC")->result();
@@ -68,6 +78,11 @@ class News extends CI_Controller {
         $data['news_detail'] = $this->crud->select_join('news', 'kategori', 'id_kategori', "WHERE news.judul_seo LIKE '$param'")->row();
         $idNews = $data['news_detail']->id_news;
         $data['tag'] = $this->crud->select_other("tag", "WHERE id_kolom='$idNews'")->result();
+=======
+        $data['jadwal'] = $this->crud->select_other("kelas", 'join jenis on kelas.id_jenis=jenis.id_jenis ORDER BY kelas.jadwal DESC')->result();
+
+        $data['news_detail'] = $this->crud->select_join('news', 'kategori1', 'id_kategori', "WHERE news.judul_seo='$param'")->row();
+>>>>>>> 9caa20c15c70040dacffd45d99145e72d46c2d56
         $data['detail'] = (object) array("judul" => $data['news_detail']->jdl_news, "isi_jenis" => $data['news_detail']->ket_news);
         $this->load->view('headfoot/doctypedetail', $data);
 
