@@ -43,21 +43,36 @@
         grid-template-columns: [left] 0 [center] 100% [right] 0;
     }
 
-    /* Print Button */
-    #print-btn {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      background: #007bff;
-      color: #fff;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
-      cursor: pointer;
-      z-index: 999999 !important;
-      display: none;
-      /* muncul setelah render */
+    /* Manual Printing Button - Gaya ala Lauwba */
+    .manual-print-fab {
+      position: fixed !important;
+      bottom: 25px !important;
+      right: 25px !important;
+      width: 55px !important;
+      height: 55px !important;
+      border-radius: 50% !important;
+      border: none !important;
+      background: #cc3360 !important; /* Warna khas Lauwba */
+      color: #fff !important;
+      font-size: 26px !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      cursor: pointer !important;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25) !important;
+      z-index: 2147483647 !important;
+      transition: all 0.2s ease !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .manual-print-fab:hover {
+      opacity: 0.85 !important;
+      transform: scale(1.08) !important;
+    }
+
+    .fab-button:active {
+      transform: scale(0.95);
     }
 
     @media print {
@@ -66,22 +81,14 @@
       }
     }
 
-    @media print {
-      * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      .fab-button {
-        display: none !important;
-      }
-    }
-
     @media screen {
       body {
         background: #ddd;
       }
-      .fab-button {
-        display: block !important;
+      .manual-print-fab {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
       }
 
       .pagedjs_page {
@@ -195,30 +202,7 @@
     p {
         margin: 0;
     }
-    .fab-button {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      border: none;
-      background: #cc3360; /* lo bisa ganti warna brand */
-      color: #fff;
-      font-size: 26px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-      z-index: 999;
-      transition: 0.2s ease;
-    }
-    
-    .fab-button:hover {
-      opacity: 0.85;
-      transform: scale(1.08);
-    }
+
   </style>
 </head>
 
@@ -735,21 +719,59 @@
         </table>
     </div>
     
-    <button class="fab-button" onclick="window.print()">
-      <i class="bi bi-printer"></i>
-    </button>
   </div>
 
+
+
   <script>
+    function injectFab() {
+      if (!document.getElementById("manual-print-btn")) {
+        console.log("Injecting Manual FAB...");
+        const fab = document.createElement("button");
+        fab.id = "manual-print-btn";
+        fab.className = "manual-print-fab";
+        fab.setAttribute("title", "Cetak Surat Penawaran");
+        fab.innerHTML = '<i class="bi bi-printer"></i>';
+        
+        // Force style lewat inline dengan !important
+        fab.style.cssText = "position: fixed !important; bottom: 25px !important; right: 25px !important; display: flex !important; z-index: 2147483647 !important;";
+        
+        fab.onclick = (e) => {
+          e.preventDefault();
+          window.print();
+        };
+
+        document.body.appendChild(fab);
+        console.log("Manual FAB injected successfully to body");
+      }
+    }
+
+    // Handle hiding during actual print
+    window.onbeforeprint = () => {
+      const btn = document.getElementById("manual-print-btn");
+      if (btn) btn.style.setProperty('display', 'none', 'important');
+    };
+    window.onafterprint = () => {
+      const btn = document.getElementById("manual-print-btn");
+      if (btn) btn.style.setProperty('display', 'flex', 'important');
+    };
+
     document.addEventListener("pagedjs:rendered", () => {
-      document.querySelector("p").style.margin="0";
-      document.querySelector("#print-btn").style.display = "block";
+      console.log("Paged.js rendering complete");
+      document.querySelector("p").style.margin = "0";
+      injectFab();
+
       document.querySelectorAll(".totalPages").forEach(el => {
         el.textContent = pagedjs.pages.length;
       });
     });
-    window.onbeforeprint = () => document.querySelector('.fab-button').style.display = 'none';
-window.onafterprint = () => document.querySelector('.fab-button').style.display = 'block';
+
+    const fabInterval = setInterval(() => {
+      injectFab();
+      if (document.getElementById("manual-print-btn")) {
+        setTimeout(() => clearInterval(fabInterval), 15000);
+      }
+    }, 1000);
   </script>
 
 </body>
