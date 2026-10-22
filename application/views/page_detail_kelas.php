@@ -1,7 +1,7 @@
 <?php $this->load->view('headfoot/header') ?>
 
 <!--ENDO OF HEAD-->
-<?php if (sizeof($detail) > 0) { ?>
+<?php if (!empty($detail)) { ?>
     <div class="container mt-4">
         <div class="text-light pt-2">
             <div class="row">
@@ -431,6 +431,7 @@
         <div class="row">
             <?php $trainer1 = $this->db->query("SELECT * FROM kelas join jenis on kelas.id_jenis=jenis.id_jenis join tutor on kelas.id_tutor=tutor.id_tutor WHERE jenis.routes='$segment'")->row(); ?>
             <?php $trainer2 = $this->db->query("SELECT * FROM kelas join jenis on kelas.id_jenis=jenis.id_jenis join tutor on kelas.id_tutor1=tutor.id_tutor WHERE jenis.routes='$segment'")->row(); ?>
+            <?php if (!empty($trainer1)) { ?>
             <div class="col-md-6 text-center mt-3">
                 <div class="avatar d-flex justify-content-center">
                     <div class=" rounded-circle" style="width: 120px; height: 120px; background: url('<?php echo $trainer1->gambar ?>'); background-position: center; background-size: cover"></div>
@@ -445,9 +446,11 @@
                     <a href="https://lauwba.com/karyawan/index.php/cv-karyawan?nama=<?= $trainer1->nama?>" class="btn btn-sm btn-success" target="_blank">Lihat CV</a>
                 </div>
             </div>
+            <?php } ?>
             <div class="col-md-12 d-block d-md-none">
                 <hr>
             </div>
+            <?php if (!empty($trainer2)) { ?>
             <div class="col-md-6 text-center mt-3">
                 <div class="avatar d-flex justify-content-center">
                     <div class="rounded-circle" style="width: 120px; height: 120px; background: url('<?php echo $trainer2->gambar ?>'); background-position: center; background-size: cover"></div>
@@ -462,6 +465,7 @@
                     <a href="https://lauwba.com/karyawan/index.php/cv-karyawan?nama=<?= $trainer2->nama?>" class="btn btn-sm btn-success" target="_blank">Lihat CV</a>
                 </div>
             </div>
+            <?php } ?>
             <!-- End Comments -->
         </div>
        
@@ -522,11 +526,20 @@
 </div>
 </div>
 
+
+
+
 <?php $this->load->view('module_promo2'); ?>
-<!--PORTOFLIO IT TRAINING-->
-<!--File ada di folder application/view/module_portofolio_it_training-->
-<?php $this->load->view('module_portofolio_it_training'); ?>
-<!--END OF PORTOFLIO IT TRAINING-->
+
+</div>
+</div>
+
+<!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-56aa4ad0-42c8-4fc2-ab31-780bbf32cc71" data-elfsight-app-lazy></div>
+
+
+
 
 <!--REKOMENDASI KELAS LAINNYA-->
 <!--File ada di folder application/view/module_rekomend_kelas_lain-->

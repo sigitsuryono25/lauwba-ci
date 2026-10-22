@@ -1,6 +1,6 @@
 <?php $this->load->view('headfoot/header') ?>
 <!--ENDO OF HEAD-->
-<?php if(sizeof($detail) > 0){?>
+<?php if(!empty($detail)){?>
 
     <div class="container mt-4">
         <div class="text-light pt-2">

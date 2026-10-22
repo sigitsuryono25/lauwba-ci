@@ -31,3 +31,9 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 /tests/results/
 /ci4-app
 /docs
+*.sqlite
+*.sqlite3
+__pycache__/
+nusacodes
+*.zip
+AGENTS.md

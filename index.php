@@ -53,7 +53,10 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	$default_env = (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'lauwba.com') !== false)
+		? 'production'
+		: 'development';
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $default_env);
 
 /*
  *---------------------------------------------------------------
@@ -66,7 +69,9 @@
 switch (ENVIRONMENT)
 {
 	case 'development':
-		error_reporting(-1);
+		// PHP 8.1+ raises E_DEPRECATED for a lot of CI3 internals; keep those
+		// out of the response so the page still renders while developing.
+		error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 		ini_set('display_errors', 1);
 	break;
 

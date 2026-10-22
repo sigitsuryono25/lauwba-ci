@@ -358,7 +358,7 @@ Untuk Pengembangan   <b class="text-danger"><i><u>skill SDM Perkantoran</u></i><
           
           <p class="font-weight-bold text-danger"><i>Ctt: Harap simpan informasi pembayaran ini</i></p>
           
-          <a class="btn btn-primary" href="<?php echo site_url('invoices/'. $row->nextid)?>" target="_blank">Lihat Invoice</a>
+          <a class="btn btn-primary" href="<?php echo site_url('invoices/'. ($row->nextid ?? ''))?>" target="_blank">Lihat Invoice</a>
       </div>
       <!--<div class="modal-footer">-->
       <!--  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->

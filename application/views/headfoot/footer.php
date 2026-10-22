@@ -314,7 +314,15 @@
         $this->load->view("cookies_popup");
     }
     ?>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-953246717"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'AW-953246717');
+</script>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "44ef243e4dfb4c9cafe0c5bed2dc8b13"}'></script>
 <!-- End Cloudflare Web Analytics -->
 

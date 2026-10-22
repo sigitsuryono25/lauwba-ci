@@ -1,4 +1,4 @@
-<?= $this->load->view('headfoot/header')?>
+<?php $this->load->view('headfoot/header')?>
 <div class="container-fluid p-0  mb-4" style="margin-top: 110px">
     <div class="head">
         <div class="overlay">
@@ -60,6 +60,6 @@
     </div>
 </div>
 
-<?= $this->load->view('module_it_training_courses')?>
-<?= $this->load->view('module_testimoni')?>
-<?= $this->load->view('headfoot/footer')?>
+<?php $this->load->view('module_it_training_courses')?>
+<?php $this->load->view('module_testimoni')?>
+<?php $this->load->view('headfoot/footer')?>

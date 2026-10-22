@@ -25,7 +25,7 @@ class News_m extends CI_Model {
     }
 
     public function daftarBerita() {
-        return $this->db->query("SELECT news.* FROM `news` INNER JOIN kategori WHERE news.id_kategori=kategori.id_kategori ORDER BY post_on DESC LIMIT 4")->result();
+        return $this->db->query("SELECT news.*, kategori.nama_kategori FROM `news` INNER JOIN kategori WHERE news.id_kategori=kategori.id_kategori ORDER BY post_on DESC LIMIT 4")->result();
     }
 
     public function getBeritaById($id) {

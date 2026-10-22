@@ -3,6 +3,9 @@
         // $uuid = $this->input->get('uuid');
         $uuid = (!empty($id)) ? $id :  $this->input->get('uuid');
         $harga = $this->db->query("SELECT * FROM kelas WHERE id_jenis IN ('$uuid')")->row();
+        if (empty($harga)) {
+            $harga = $this->db->query("SELECT * FROM kelas ORDER BY id_kelas ASC LIMIT 1")->row();
+        }
 ?>
 <!--<style>
         /*body {*/
@@ -360,31 +363,32 @@
                                 <?= $this->etc->rps($harga->biaya_coret)?> /Peserta
                             </del></font><br>
                     </b>
+                     <b>  <font color="blue">Rp.
+                            <?= $this->etc->rps($harga->biaya)?> /Peserta
+                        </b> <br></font>
                     
                     <b class="text-dark">Pelaksanaan :</b><br>
                     <font color="black">
-                        Yogyakarta<br>
-                        <b>Rp.
-                            <?= $this->etc->rps($harga->biaya)?> /Peserta
-                        </b>
+                        Offline di Kantor Lauwba Academy & di Hotel<br>
+                       
                     </font><br>
-                    <font color="indigo">
-                        Luar Yogyakarta<br>
-                        <b>Rp.
-                            <?= $this->etc->rps($harga->biaya_luar_kota)?> /Peserta
-                        </b>
-                    </font>
+                    <!--<font color="indigo">-->
+                    <!--    Luar Yogyakarta<br>-->
+                    <!--    <b>Rp.-->
+                    <!--        <?= $this->etc->rps($harga->biaya_luar_kota)?> /Peserta-->
+                    <!--    </b>-->
+                    <!--</font>-->
 
                     <div class="pricing-content mt-3">
                         <ul>
                             <!--<li style="line-height: 20px;"><b>Pelaksanaan :</b><br>Offline di kantor kami</li>-->
-                            <li style="line-height: 20px;" class="mt-3"><b>Durasi :</b><br>4 Hari Full Day</li>
+                            <li style="line-height: 20px;" class="mt-3"><b>Durasi :</b><br>3-4 Hari Full Day</li>
                             <li style="line-height: 20px;" class="mt-3"><b>Jadwal :</b><br><a href="javascript:void(0)"
                                     onclick="parent.parentJadwal('reguler-offline')">Klik Disini</a></li>
                             <li style="line-height: 20px;" class="mt-3"><b>Jumlah Peserta :</b> <br>2-7
                                 Peserta/Kls</li>
                             <li style="line-height: 20px;" class="mt-3"><b>Materi/Silabus :</b><br>Mengikuti
-                                Silabus Kami</li>
+                                Silabus Kami(lihat bag. atas)</li>
                                 
                             <!--                                <img src="/assets/img/icn/hotel-lauwba.png"><br>-->
                             <!--<font color="blue"><b>GRATIS<br> </b>Penginapan selama  pelatihan(Yogyakarta)</del></font><br>-->
@@ -406,63 +410,7 @@
 
 
 
-            <?php $hargaPerorang = json_decode($harga->biaya_in_house_per_person)?>
-            <div class="col-md-4 col-sm-6 mt-4">
-                <div class="pricingTable teal">
-                    <div class="pricingTable-header">
-                        <i class="fa fa-briefcase"></i>
-                        <div class="price-value font-weight-bold"> CORPORATE TRAINING
-                        </div>
-
-                    </div>
-                        
-                           <span class="text-dark"> <i>Pelatihan Khusus Corporate/Instansi <br>Untuk
-                                Pengembangan skill SDM Perkantoran</i>  </span>
-                            <p>
-                        <font color="red">Rp. <del>
-                                <?= $this->etc->rps($harga->biaya_inhouse_coret)?> /Peserta
-                            </del></font><br>
-                          <span style="color: black"> 1-2 Peserta</span>  <br>
-                        <font color="#0399be">Rp. <?= $this->etc->rps($hargaPerorang->biaya_1_2)?>/Peserta <br> </font>
-                            <span style="color: black"> 3-5 Peserta</span>  <br>
-                        <font color="#0399be">Rp. <?= $this->etc->rps($hargaPerorang->biaya_3_5)?>/Peserta <br> </font>
-                         <span style="color: black"> 6 Peserta atau lebih</span>  <br>
-                        <font color="#0399be">Rp.<?= $this->etc->rps($hargaPerorang->biaya_lebih_6)?>/Peserta <br> </font> </b>
-
-                            <?
-                            // = $this->etc->rps($harga->biaya_inhouse)
-                            ?>
-                        </font>
-                    <div class="pricing-content mt-3">
-                        <ul>
-                         
-                                <li style="line-height: 20px;"><b>Pelaksanaan : </b><br>Online/Offline</li>
-                                <li style="line-height: 20px;" class="mt-3"><b>Durasi :</b><br>3 Hari Full Day/By Request
-                                </li>
-                                <li style="line-height: 20px;" class="mt-3"><b>Jadwal :</b><br><a
-                                        href="javascript:void(0)">By
-                                        Request</a></li>
-                                <li style="line-height: 20px;" class="mt-3"><b>Jumlah Peserta :</b> <br>By
-                                    Request</li>
-                                <li style="line-height: 20px;" class="mt-3"><b>Materi/Silabus :</b><br>Sesuai
-                                    Silabus kami/By Request <br><a
-                                        onclick="parent.openUrl('https://lauwba.com/in-house-training-27.html')"
-                                        href="javascript:void(0)"> Selengkapnya KLIK DISINI</a></li>
-                                        
-                            <!--                                                                        <img src="/assets/img/icn/hotel-lauwba.png"><br>-->
-                            <!--<font color="blue"><b>GRATIS<br> </b>Penginapan selama pelatihan(Yogyakarta)</del></font><br>-->
-
-                                <br>
-                                <img src="/img/garansi.jpg"><br>
-                                <font color="blue"><b>GARANSI :<br></b> GRATIS Mengulang Sampai Bisa</del></font><br>
-                        </ul>
-                    </div>
-                    <div class="pricingTable-signup">
-                        <a href="javascript:void(0)" onclick="parent.parentRegister()">Daftar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-
+        
 
 
             <div class="col-md-4 col-sm-6 mt-4" style="transform: scale(1.05); z-index: 1;">
@@ -544,23 +492,23 @@
                             <li style="line-height: 20px;" class="mt-3"><b>Jumlah Peserta :</b> <br>1-2
                                 Peserta/Kls</li>
                             <li style="line-height: 20px;" class="mt-3"><b>Materi/Silabus :</b><br>Silabus Basic
-                                + Lanjut + Project 
+                                + Lanjut + Project <br>
                                     
-                                    <div class="pricingTable-signup">
-                        <a href="javascript:void(0)" onclick="parent.openUrl('https://lauwba.com/incubator-class-android-26.html')">INFO Selengkapnya KLIK DISINI</a>
-                    </div>
-                            <img src="/assets/img/icn/hotel-lauwba.png"><br>
-                            <font color="blue"><b>GRATIS<br> </b>Penginapan selama  pelatihan</del></font><br> </a>
+                    <!--                <div class="pricingTable-signup">-->
+                    <!--    <a href="javascript:void(0)" onclick="parent.openUrl('https://lauwba.com/incubator-class-android-26.html')">INFO Selengkapnya KLIK DISINI</a>-->
+                    <!--</div>-->
+                            <!--<img src="/assets/img/icn/hotel-lauwba.png"><br>-->
+                            <!--<font color="blue"><b>GRATIS<br> </b>Fasilitas ini terbatas WAJIB Konfirmasi sebelum full</del></font><br> </a>-->
 
 
 
-                            <br>
+                            <!--<br>-->
                             <img src="/img/garansi.jpg"><br>
                             <font color="blue"><b>GARANSI :<br></b> GRATIS Mengulang Sampai Bisa</del></font><br>
                         </ul>
                     </div>
                     <div class="pricingTable-signup">
-                        <a href="javascript:void(0)" onclick="parent.parentRegister()">Daftar Sekarang</a>
+                       <a href="javascript:void(0)" onclick="parent.openUrl('https://lauwba.com/incubator-class-android-26.html')">INFO Selengkapnya KLIK DISINI</a>
                     </div>
                 </div>
             </div>
@@ -642,6 +590,62 @@
 
 
 
+    <?php $hargaPerorang = json_decode($harga->biaya_in_house_per_person)?>
+            <div class="col-md-4 col-sm-6 mt-4">
+                <div class="pricingTable teal">
+                    <div class="pricingTable-header">
+                        <i class="fa fa-briefcase"></i>
+                        <div class="price-value font-weight-bold"> CORPORATE TRAINING
+                        </div>
+
+                    </div>
+                        
+                           <span class="text-dark"> <i>Pelatihan Khusus Corporate/Instansi <br>Untuk
+                                Pengembangan skill SDM Perkantoran</i>  </span>
+                            <p>
+                        <font color="red">Rp. <del>
+                                <?= $this->etc->rps($harga->biaya_inhouse_coret)?> /Peserta
+                            </del></font><br>
+                          <span style="color: black"> 1-2 Peserta</span>  <br>
+                        <font color="#0399be">Rp. <?= $this->etc->rps($hargaPerorang->biaya_1_2)?>/Peserta <br> </font>
+                            <span style="color: black"> 3-5 Peserta</span>  <br>
+                        <font color="#0399be">Rp. <?= $this->etc->rps($hargaPerorang->biaya_3_5)?>/Peserta <br> </font>
+                         <span style="color: black"> 6 Peserta atau lebih</span>  <br>
+                        <font color="#0399be">Rp.<?= $this->etc->rps($hargaPerorang->biaya_lebih_6)?>/Peserta <br> </font> </b>
+
+                            <?
+                            // = $this->etc->rps($harga->biaya_inhouse)
+                            ?>
+                        </font>
+                    <div class="pricing-content mt-3">
+                        <ul>
+                         
+                                <li style="line-height: 20px;"><b>Pelaksanaan : </b><br>Offline/Online</li>
+                                <li style="line-height: 20px;" class="mt-3"><b>Durasi :</b><br>3 Hari Full Day/By Request
+                                </li>
+                                <li style="line-height: 20px;" class="mt-3"><b>Jadwal :</b><br><a
+                                        href="javascript:void(0)">By
+                                        Request</a></li>
+                                <li style="line-height: 20px;" class="mt-3"><b>Jumlah Peserta :</b> <br>By
+                                    Request</li>
+                                <li style="line-height: 20px;" class="mt-3"><b>Materi/Silabus :</b><br>Sesuai
+                                    Silabus kami/By Request <br><a
+                                        onclick="parent.openUrl('https://lauwba.com/in-house-training-27.html')"
+                                        href="javascript:void(0)"> Selengkapnya KLIK DISINI</a></li>
+                                        
+                            <!--                                                                        <img src="/assets/img/icn/hotel-lauwba.png"><br>-->
+                            <!--<font color="blue"><b>GRATIS<br> </b>Penginapan selama pelatihan(Yogyakarta)</del></font><br>-->
+
+                                <br>
+                                <img src="/img/garansi.jpg"><br>
+                                <font color="blue"><b>GARANSI :<br></b> GRATIS Mengulang Sampai Bisa</del></font><br>
+                        </ul>
+                    </div>
+                    <div class="pricingTable-signup">
+                        <a href="javascript:void(0)" onclick="parent.parentRegister()">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
 
 
 

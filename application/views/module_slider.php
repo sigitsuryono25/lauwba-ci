@@ -15,10 +15,10 @@ $slider = $this->crud->select_other('slider', 'order by id_slider desc')->result
             //    }
                 ?>
                 <!--<img style="height:601px" -->
-                <!--     class="lazyload img-fluid d-none d-md-block w-100" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="sliderimages/<?php echo $s->gbr_slider ?>">-->
+                <!--     class="lazyload img-fluid d-none d-md-block w-100" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="sliderimages/">-->
                      
                 <!--<img style="width: 100%;" -->
-                <!--     class="lazyload img-fluid d-block d-md-none" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="sliderimages/<?php echo $s->gbr_slider ?>">-->
+                <!--     class="lazyload img-fluid d-block d-md-none" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="sliderimages/">-->
             <!--</div>-->
             <?php
 //            $no++;

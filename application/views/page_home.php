@@ -101,7 +101,7 @@
 
 <!--NEWS AND BLOG-->
 <!--File ada di folder application/view/module_news_blog-->
-<?php// $this->load->view('module_news_blog');?>
+<?php // $this->load->view('module_news_blog'); ?>
 <!--END OF NEWS AND BLOG-->
 
 <!--LOKASI-->

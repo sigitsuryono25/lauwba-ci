@@ -186,6 +186,19 @@
         .break {
             page-break-before: always;
         }
+        @media print {
+            body {
+              background: #fff;
+            }
+            .a4-page {
+              margin: 0;
+              box-shadow: none;
+              page-break-after: always;
+            }
+            .fab-button {
+                display: none !important;
+              }
+          }
     </style>
 
 </head>
@@ -482,7 +495,7 @@
                             <?php //}?>
                         <!--</td>-->
                     <!--</tr>-->
-                    <?php// endforeach; ?>
+                    <?php // endforeach; ?>
                 <!--</table>-->
             </div>
             
@@ -656,6 +669,9 @@
                 </table>
             </div>
     </div>
+    <button class="fab-button" onclick="window.print()">
+      <i class="bi bi-printer"></i>
+    </button>
 </body>
 
 </html>

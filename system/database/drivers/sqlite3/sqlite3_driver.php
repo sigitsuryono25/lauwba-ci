@@ -85,14 +85,112 @@ class CI_DB_sqlite3_driver extends CI_DB {
 
 		try
 		{
-			return ( ! $this->password)
+			$db = ( ! $this->password)
 				? new SQLite3($this->database)
 				: new SQLite3($this->database, SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE, $this->password);
+
+			$this->_register_mysql_compat_functions($db);
+
+			return $db;
 		}
 		catch (Exception $e)
 		{
 			return FALSE;
 		}
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Register a handful of MySQL functions that the application queries use,
+	 * so MySQL-flavoured SQL keeps working on SQLite.
+	 *
+	 * @param	SQLite3	$db
+	 * @return	void
+	 */
+	protected function _register_mysql_compat_functions(SQLite3 $db)
+	{
+		$db->createFunction('now', function () {
+			return date('Y-m-d H:i:s');
+		}, 0);
+
+		$db->createFunction('curdate', function () {
+			return date('Y-m-d');
+		}, 0);
+
+		$db->createFunction('rand', function () {
+			return mt_rand() / mt_getrandmax();
+		}, 0);
+
+		$db->createFunction('concat', function (...$args) {
+			foreach ($args as $arg)
+			{
+				if ($arg === NULL)
+				{
+					return NULL;
+				}
+			}
+			return implode('', $args);
+		}, -1);
+
+		$db->createFunction('if', function ($condition, $then, $else) {
+			return $condition ? $then : $else;
+		}, 3);
+
+		$db->createFunction('left', function ($str, $len) {
+			return ($str === NULL || $len === NULL) ? NULL : substr($str, 0, (int) $len);
+		}, 2);
+
+		$db->createFunction('right', function ($str, $len) {
+			return ($str === NULL || $len === NULL) ? NULL : substr($str, -(int) $len);
+		}, 2);
+
+		$date_part = function ($value, $format) {
+			$ts = ($value === NULL || $value === '') ? FALSE : strtotime($value);
+			return ($ts === FALSE) ? NULL : (int) date($format, $ts);
+		};
+		$db->createFunction('year', function ($value) use ($date_part) {
+			return $date_part($value, 'Y');
+		}, 1);
+		$db->createFunction('month', function ($value) use ($date_part) {
+			return $date_part($value, 'n');
+		}, 1);
+		$db->createFunction('day', function ($value) use ($date_part) {
+			return $date_part($value, 'j');
+		}, 1);
+		$db->createFunction('dayofmonth', function ($value) use ($date_part) {
+			return $date_part($value, 'j');
+		}, 1);
+
+		$db->createFunction('date_format', function ($value, $format) {
+			if ($value === NULL || $format === NULL)
+			{
+				return NULL;
+			}
+			$ts = strtotime($value);
+			if ($ts === FALSE)
+			{
+				return NULL;
+			}
+			$map = array(
+				'%Y' => 'Y', '%y' => 'y', '%m' => 'm', '%c' => 'n',
+				'%d' => 'd', '%e' => 'j', '%H' => 'H', '%k' => 'G',
+				'%h' => 'h', '%I' => 'h', '%l' => 'g', '%i' => 'i',
+				'%s' => 's', '%M' => 'F', '%b' => 'M', '%W' => 'l',
+				'%a' => 'D', '%p' => 'A', '%T' => 'H:i:s',
+				'%r' => 'h:i:s A', '%%' => '%',
+			);
+			return date(strtr($format, $map), $ts);
+		}, 2);
+
+		$db->createFunction('unix_timestamp', function ($value = NULL) {
+			if ($value === NULL)
+			{
+				return time();
+			}
+			$ts = strtotime($value);
+			return ($ts === FALSE) ? NULL : $ts;
+		}, -1);
 	}
 
 	// --------------------------------------------------------------------

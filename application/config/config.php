@@ -30,7 +30,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $config['base_url'] = 'https://lauwba.com/';
 //$config['base_url']=https://www.lauwba.com/411/index.php/Welcome;
 //$config['base_url']=https://www.lauwba.com/411/;
-$config['base_url'] = "http://localhost/lauwba-ci/";
+// Ikuti host yang dipakai (localhost / domain), fallback ke domain produksi.
+// Cloudflare tunnel meneruskan HTTPS asli via header, jadi deteksi juga
+// X-Forwarded-Proto agar asset tidak ter-block sebagai mixed content.
+$proto = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+    || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+$config['base_url'] = !empty($_SERVER['HTTP_HOST'])
+    ? ($proto ? 'https://' : 'http://').$_SERVER['HTTP_HOST'].'/'
+    : 'https://lauwba.com/';
+
+// URL halaman "Online Course" (aplikasi Laravel Lauwba Academy).
+// Ubah nilai production di bawah kalau nanti domainnya berbeda.
+$config['online_course_url'] = (ENVIRONMENT === 'production')
+    ? 'https://lauwba.com/course/'
+    : 'https://lauwba.com/course/';
+
+// API key for server-to-server requests from the online course app.
+$config['lauwba_api_key'] = getenv('LAUWBA_API_KEY') ?: 'lauwba-online-course-dev-key';
 
 /*
 |--------------------------------------------------------------------------
@@ -388,7 +404,7 @@ $config['encryption_key'] = '';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = APPPATH.'cache/sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

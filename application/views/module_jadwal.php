@@ -75,13 +75,13 @@ $jadwalBulanDepan = $this->db->query("SELECT * FROM jadwal WHERE bulan IN ('$nex
             <?php if(!empty($fromLkp)){?>
                 <div class="col-md-12">
                     <div class="newTitle1 d-none d-md-block">
-                        <h2 class="text-center text-uppercase font-weight-bold text-primary" id="titleborder"><span>Jadwal REGULER  CLASS YOGYAKARTA</span></h2>
+                        <h2 class="text-center text-uppercase font-weight-bold text-primary" id="titleborder"><span>Jadwal KELAS REGULER</span></h2>
                     </div>
                 </div>
         
                 <!--Ini Untuk Mobile-->
                 <div class="col-md-12 d-md-none d-block">
-                        <h5 class="text-center text-uppercase text-primary font-weight-bold " id="titleborder"><span>Jadwal REGULER CLASS YOGYAKARTA</span></h5>
+                        <h5 class="text-center text-uppercase text-primary font-weight-bold " id="titleborder"><span>Jadwal KELAS REGULER</span></h5>
                     
                 </div>
                 
@@ -91,13 +91,13 @@ $jadwalBulanDepan = $this->db->query("SELECT * FROM jadwal WHERE bulan IN ('$nex
                 <?php }else{?>
             <div class="col-md-12">
                 <div class="newTitle1 d-none d-md-block">
-                    <h2 class="h4 ml-5 pl-5" id="titleborder"><span>Jadwal Kelas Reguler  Yogyakarta</span></h2>
+                    <h2 class="h4 ml-5 pl-5" id="titleborder"><span>Jadwal Kelas Reguler </span></h2>
                 </div>
                 <!--Ini Untuk Mobile-->
                 <div class="col-md-12 d-md-none d-block mt-4">
                     <img src="https://server4111.com/banner-lauwba/layer-lauwba.png" width="100%" height="40px" class="bg-title" alt="lauwba layer"/>
                     <div class="newTitle1Mobile" style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-                        <h5 class="h6 ml-5 pl-4 " id="titleborder"><span>Jadwal Kelas Reguler  Yogyakarta</span></h5>
+                        <h5 class="h6 ml-5 pl-4 " id="titleborder"><span>Jadwal Kelas Reguler </span></h5>
                     </div>
                 </div>
             <?php } ?>
@@ -105,7 +105,7 @@ $jadwalBulanDepan = $this->db->query("SELECT * FROM jadwal WHERE bulan IN ('$nex
                 <div class="col-md-12">
                      <center class="text-dark">
                         <b><i> Untuk Kelas REGULER </b> Mengikuti Jadwal yang Tersedia (Lihat Jadwal dibawah ini)</i><br>
-                        <b><i> DURASI Kursus Selama 4 Hari dari Jam 08.30 - 15.30</i></b>
+                        <b><i> DURASI Kursus Selama 3-4 Hari dari Jam 08.30 - 15.30</i></b>
                     </center>
                 </div>
             </div>
@@ -183,7 +183,7 @@ $jadwalBulanDepan = $this->db->query("SELECT * FROM jadwal WHERE bulan IN ('$nex
         <div class="col-md-12 mt-4">
             <div class="reg">
                 <div class="newTitle1 d-none d-md-block   mt-4">
-                    <h2 class="h4 ml-5 pl-5" id="titleborder"><span>Jadwal Kelas Bootcamp/INCUBATOR</span></h2>
+                    <h2 class="h4 ml-5 pl-5" id="titleborder"><span>Jadwal Kelas INCUBATOR</span></h2>
                 </div>
                 <!--Ini Untuk Mobile-->
                 <div class="col-md-12 d-md-none d-block mt-4">
@@ -236,120 +236,10 @@ $jadwalBulanDepan = $this->db->query("SELECT * FROM jadwal WHERE bulan IN ('$nex
                     </center>
                 </div>
 
-            </div>
-        </div>
-    </div>
+ 
     
-
-    <div class="container mt-4">
-        <div class="row">
-            <?php if(!empty($fromLkp)){?>
-                <div class="col-md-12">
-                    <div class="newTitle1 d-none d-md-block">
-                        <h2 class="text-center text-uppercase font-weight-bold text-primary" id="titleborder"><span>Jadwal REGULER CLASS</span></h2>
-                    </div>
-                </div>
-        
-                <!--Ini Untuk Mobile-->
-                <div class="col-md-12 d-md-none d-block">
-                    <h5 class="text-center text-uppercase text-primary font-weight-bold" id="titleborder"><span>Jadwal REGULER CLASS</span></h5>
-            
-                </div>
-                
-                <div class="col-md-12">
-                    <hr>
-                </div>
-                <?php }else{?>
-            <div class="col-md-12">
-                <div class="newTitle1 d-none d-md-block   mt-4">
-                    <h2 class="h4 ml-5 pl-5" id="titleborder"><span>Jadwal REGULER CLASS</span></h2>
-                </div>
-                <!--Ini Untuk Mobile-->
-                <div class="col-md-12 d-md-none d-block mt-4">
-                    <img src="https://server4111.com/banner-lauwba/layer-lauwba.png" width="100%" height="40px" class="bg-title" alt="lauwba layer"/>
-                    <div class="newTitle1Mobile" style=" position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-                        <h2 class="h6 ml-5 pl-4 " id="titleborder"><span>Jadwal REGULER CLASS</span></h2>
-                    </div>
-                </div>
-
-                <!--Akhir dari Untuk Mobile-->
-                <?php }?>
-                <div class="col-md-12">
-                    <center class="text-dark">
-                        <b><i> Untuk Kelas REGULER </b> Mengikuti Jadwal yang Tersedia (Lihat Jadwal & Tempat Pelaksanaan dibawah ini)</i><br>
-                        <b><i> DURASI Kursus Selama 4 Hari dari Jam 08.30 - 15.30 </i></b>
-                    </center>
-                </div>
-            </div>
-        </div>
-        <div class="row no-gutters">
-            <div class="col-md-6 col-12">
-                <h4 class="text-center"><u><?= $judulSsekarang ?></u></h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-sm">
-                        <thead class="bg-primary text-light">
-                            <tr>
-                                <th>Kota</th>
-                                <th>Jadwal</th>
-                                <th>Keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($jadwal as $j) { ?>
-                                <tr>
-                                    <td class="align-middle"><?= $j->kota_pelaksanaan ?></td>
-                                    <td class="align-middle"><?= $j->tanggal ?></td>
-                                    <td class="align-middle"><?php
-                                                                if (strtolower($j->keterangan) == "full booked") {
-                                                                    echo "<span class='badge badge-danger text-capitalize'>$j->keterangan</span>";
-                                                                } else if (strtolower($j->keterangan) == "2 seats available") {
-                                                                    echo "<span class='badge badge-warning  text-capitalize'>$j->keterangan</span>";
-                                                                } else {
-                                                                    echo "<span class='badge badge-success text-capitalize'>$j->keterangan</span>";
-                                                                } ?>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-6 col-12">
-                <h4 class="text-center"><u><?= $judulBulanDepan ?></u></h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-sm">
-                        <thead class="bg-primary text-light">
-                            <tr>
-                                <th>Kota</th>
-                                <th>Jadwal</th>
-                                <th>Keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($jadwalBulanDepan as $j) { ?>
-                                <tr>
-                                    <td class="align-middle"><?= $j->kota_pelaksanaan ?></td>
-                                    <td class="align-middle"><?= $j->tanggal ?></td>
-                                    <td class="align-middle"><?php
-                                                                if (strtolower($j->keterangan) == "full booked") {
-                                                                    echo "<span class='badge badge-danger text-capitalize'>$j->keterangan</span>";
-                                                                } else if (strtolower($j->keterangan) == "2 seats available") {
-                                                                    echo "<span class='badge badge-warning text-capitalize'>$j->keterangan</span>";
-                                                                } else {
-                                                                    echo "<span class='badge badge-success text-capitalize'>$j->keterangan</span>";
-                                                                } ?>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <script>
-var isEmbed = "<?= $embedded?>";
+var isEmbed = "<?= $embedded ?? ''?>";
     $(document).ready(function(){
         if(isEmbed){
             $("#topbar").addClass("d-none"); 

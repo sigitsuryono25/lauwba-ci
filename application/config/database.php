@@ -74,30 +74,98 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-$db['default'] = array(
-    'dsn' => '',
-    'hostname' => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    // 'database' => 'lauwbaco_versi22',
-    // 'username' => 'lauwbaco_latest',
-// 'password' => 'latestlauwba',
-  'database' => 'lauwbaco_latest_lauwba',
-    //'username' => 'u7756826_latest',
-    //'password' => 'latestlauwba',
-  //  'database' => 'u7756826_latest_lauwba',
-    'dbdriver' => 'mysqli',
-    'dbprefix' => '',
-    'pconnect' => FALSE,
-    'db_debug' => (ENVIRONMENT !== 'production'),
-    'cache_on' => FALSE,
-    'cachedir' => '',
-    'char_set' => 'utf8',
-    'dbcollat' => 'utf8_general_ci',
-    'swap_pre' => '',
-    'encrypt' => FALSE,
-    'compress' => FALSE,
-    'stricton' => FALSE,
-    'failover' => array(),
-    'save_queries' => TRUE
-);
+if (ENVIRONMENT !== 'production' && file_exists(FCPATH . 'database/lauwbaco_versi22_latest.sqlite')) {
+    // -------------------------------------------------------------------
+    // Local SQLite Development
+    // -------------------------------------------------------------------
+    $db['default'] = array(
+        'dsn' => '',
+        'hostname' => '',
+        'username' => '',
+        'password' => '',
+        'database' => FCPATH . 'database/lauwbaco_versi22_latest.sqlite',
+        'dbdriver' => 'sqlite3',
+        'dbprefix' => '',
+        'pconnect' => FALSE,
+        'db_debug' => TRUE,
+        'cache_on' => FALSE,
+        'cachedir' => '',
+        'char_set' => 'utf8',
+        'dbcollat' => '',
+        'swap_pre' => '',
+        'encrypt' => FALSE,
+        'compress' => FALSE,
+        'stricton' => FALSE,
+        'failover' => array(),
+        'save_queries' => TRUE
+    );
+
+    $db['accounting'] = array(
+        'dsn' => '',
+        'hostname' => '',
+        'username' => '',
+        'password' => '',
+        'database' => FCPATH . 'database/lauwbaco_accounting.sqlite',
+        'dbdriver' => 'sqlite3',
+        'dbprefix' => '',
+        'pconnect' => FALSE,
+        'db_debug' => TRUE,
+        'cache_on' => FALSE,
+        'cachedir' => '',
+        'char_set' => 'utf8',
+        'dbcollat' => 'utf8_general_ci',
+        'swap_pre' => '',
+        'encrypt' => FALSE,
+        'compress' => FALSE,
+        'stricton' => FALSE,
+        'failover' => array(),
+        'save_queries' => TRUE
+    );
+} else {
+    // -------------------------------------------------------------------
+    // Production MySQL (Hostinger / cPanel)
+    // -------------------------------------------------------------------
+    $db['default'] = array(
+        'dsn' => '',
+        'hostname' => 'localhost',
+        'username' => 'lauwbaco_latest',
+        'password' => 'latestlauwba',
+        'database' => 'lauwbaco_latest_lauwba',
+        'dbdriver' => 'mysqli',
+        'dbprefix' => '',
+        'pconnect' => FALSE,
+        'db_debug' => (ENVIRONMENT !== 'production'),
+        'cache_on' => FALSE,
+        'cachedir' => '',
+        'char_set' => 'utf8',
+        'dbcollat' => 'utf8_general_ci',
+        'swap_pre' => '',
+        'encrypt' => FALSE,
+        'compress' => FALSE,
+        'stricton' => FALSE,
+        'failover' => array(),
+        'save_queries' => TRUE
+    );
+
+    $db['accounting'] = array(
+        'dsn' => '',
+        'hostname' => 'localhost',
+        'username' => 'lauwbaco_accounting',
+        'password' => 'lauwba_accounting',
+        'database' => 'lauwbaco_accounting',
+        'dbdriver' => 'mysqli',
+        'dbprefix' => '',
+        'pconnect' => FALSE,
+        'db_debug' => (ENVIRONMENT !== 'production'),
+        'cache_on' => FALSE,
+        'cachedir' => '',
+        'char_set' => 'utf8',
+        'dbcollat' => 'utf8_general_ci',
+        'swap_pre' => '',
+        'encrypt' => FALSE,
+        'compress' => FALSE,
+        'stricton' => FALSE,
+        'failover' => array(),
+        'save_queries' => TRUE
+    );
+}

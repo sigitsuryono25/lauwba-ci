@@ -26,7 +26,7 @@ class Pendaftaran extends CI_Controller{
         header('Access-Control-Allow-Origin: *');
         $jsonData = file_get_contents("php://input");
         $json = json_decode($jsonData);
-        $nextid = $this->db->query("SELECT MAX(id)+1 as nextid FROM `pendaftar`ORDER BY id LIMIT 1")->row()->nextid;
+        $nextid = $this->db->query("SELECT COALESCE(MAX(id),0)+1 as nextid FROM `pendaftar`")->row()->nextid;
         $random = $this->etc->randomunik();
         $data = [
             'id' => $nextid,
@@ -105,7 +105,7 @@ class Pendaftaran extends CI_Controller{
         $data['training'] = $json->pilihan_training_reguler;
         $data['pilihan_kelas'] = $json->pilihan_kelas;
         $data['jadwal'] = $json->pilihan_jadwal_reguler;
-        $where = ['id' => $json->id];
+        $where = ['id' => ($json->id ?? null)];
         if($isUpdate){
             $res = $this->crud->updateArray("pendaftar", $data, $where);
             $data['id'] = $json->id;
@@ -129,7 +129,7 @@ class Pendaftaran extends CI_Controller{
         $data['training'] = $json->pilihan_training_private;
         $data['private_kota_pelaksanaan'] = $json->private_kota_pelaksanaan;
         $data['alamat_private_offline'] = $json->alamat_private_offline;
-        $where = ['id' => $json->id];
+        $where = ['id' => ($json->id ?? null)];
         
         if($isUpdate){
             $res = $this->crud->updateArray("pendaftar", $data, $where);
@@ -156,7 +156,7 @@ class Pendaftaran extends CI_Controller{
         $data['inkubator_tanggal_mulai'] = $json->tanggal_mulai_inkubator;
         $data['pilihan_kelas'] = $json->pilihan_kelas;
         $data['training'] = $json->pilihan_training_inkubator;
-        $where = ['id' => $json->id];
+        $where = ['id' => ($json->id ?? null)];
         
         if($isUpdate){
             $res = $this->crud->updateArray("pendaftar", $data, $where);
@@ -183,7 +183,7 @@ class Pendaftaran extends CI_Controller{
         $data['in_house_tanggal_selesai'] = $json->tanggal_selesai_coorporate;
         $data['training'] = $json->pilihan_training_coorporate;
         $data['in_house_jumlah_peserta'] = $json->jumlah_peserta_coorporate;
-        $where = ['id' => $json->id];
+        $where = ['id' => ($json->id ?? null)];
         
         if($isUpdate){
             $res = $this->crud->updateArray("pendaftar", $data, $where);

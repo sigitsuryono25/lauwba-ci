@@ -1,12 +1,14 @@
 <?php
 $nomorBayar = $this->uri->segment(3);
-$bayar = $this->db->query("SELECT history_trans.*, pendaftar.nama_lengkap, pendaftar.from, lauwbaco_admin_lkp.jenis.judul as judul_lkp, lauwbaco_latest_lauwba.jenis.judul FROM history_trans 
+$bayar = $this->db->query("SELECT history_trans.*, pendaftar.nama_lengkap, pendaftar.\"from\", jenis.judul as judul_lkp, jenis.judul FROM history_trans 
 INNER JOIN pendaftar ON history_trans.id_daftar=pendaftar.id
-LEFT JOIN lauwbaco_latest_lauwba.jenis 
-ON pendaftar.training=lauwbaco_latest_lauwba.jenis.id_jenis
-LEFT JOIN lauwbaco_admin_lkp.jenis 
-ON pendaftar.training=lauwbaco_admin_lkp.jenis.id_jenis 
+LEFT JOIN jenis ON pendaftar.training=jenis.id_jenis 
 WHERE history_trans.id IN ('$nomorBayar')")->row();
+
+if (empty($bayar)) {
+    echo '<p>Data pembayaran tidak ditemukan.</p>';
+    return;
+}
 
 // die($this->db->last_query());
 $jenis = $this->input->get('jenis');
@@ -40,25 +42,44 @@ if($jenis == "project"){
   .a4-page {
     width: 210mm;
     min-height: 297mm;
-    margin: 10px auto;
+    margin: 0 auto;
+    overflow:hidden;
     background: #fff;
     position: relative;
     box-shadow: 0 0 5px rgba(0,0,0,0.15);
   }
 
   /* HEADER & FOOTER FULL WIDTH */
-  .a4-header,
-  .a4-footer {
-    width: 100%;
-    padding: 10mm 15mm;
-    background: #FFF;
-  }
+  /*.a4-header,*/
+  /*.a4-footer {*/
+  /*  width: 100%;*/
+  /*  padding: 10mm 15mm;*/
+  /*  background: #FFF;*/
+  /*}*/
+   .a4-header{
+        width:100%;
+        height:160px;
+        overflow:hidden;
+    }
+    
+    .header-img{
+        width:100%;
+        height:100%;
+        object-fit:cover; /* atau contain */
+        display:block;
+    }
 
 
-  .a4-footer {
-    position: absolute;
-    bottom: 0;
-  }
+    .a4-footer{
+        position:absolute;
+        bottom:0;
+        width:100%;
+    }
+    
+    .footer-img{
+        width:100%;
+        display:block;
+    }
 
   /* CONTENT TETAP ADA MARGIN */
   .a4-content {
@@ -98,7 +119,7 @@ if($jenis == "project"){
     .a4-page {
       margin: 0;
       box-shadow: none;
-      page-break-after: always;
+      page-break-after: auto;
     }
     .fab-button {
         display: none !important;
@@ -111,9 +132,15 @@ if($jenis == "project"){
 <div class="a4-page">
 
   <!-- FULL WIDTH HEADER -->
-  <div class="a4-header d-flex justify-content-between align-items-center" style="height: 160px;background-image: url('<?= base_url("assets/img/header.jpg")?>');background-size: contain;background-repeat: no-repeat;width: 100%;">
-    &nbsp;
-  </div>
+  <!--<div class="a4-header d-flex justify-content-between align-items-center" style="height: 160px;background-image: url('<?= base_url("assets/img/header.jpg")?>');background-size: contain;background-repeat: no-repeat;width: 100%;">-->
+  <!--  &nbsp;-->
+  <!--</div>-->
+  <div class="a4-header">
+    <img
+        src="<?= base_url('assets/img/header.jpg') ?>"
+        alt="Header"
+        class="header-img">
+    </div>
 
   <!-- CONTENT WITH MARGINS -->
   <div class="a4-content">
@@ -144,14 +171,20 @@ if($jenis == "project"){
     <div class="text-end mt-5 pt-2">
       <p>Yogyakarta, <?= $this->etc->indonesiaDate(date_format(date_create($bayar->transaksi_pada), "Y-m-d"))?></p><br>
       <img src="<?= base_url("assets/img/sign.png")?>" style="width: 50%;"/><br>
-      <b><u>Hardiansah, S. Kom., M. Kom.</u></b><br><span>Direktur</span>
+      <b><u>Ariesna, S. Si.</u></b><br><span>Chief Financial Officer</span>
     </div>
   </div>
 
   <!-- FULL WIDTH FOOTER -->
-  <div class="a4-footer text-center" style="height: 161px;background-image: url('https://lauwba.com/assets/img/footer.png');background-size: contain;background-repeat: no-repeat;width: 100%;">
-    &nbsp;
-  </div>
+  <!--<div class="a4-footer text-center" style="height: 161px;background-image: url('https://lauwba.com/assets/img/footer.png');background-size: contain;background-repeat: no-repeat;width: 100%;">-->
+  <!--  &nbsp;-->
+  <!--</div>-->
+    <div class="a4-footer">
+        <img
+            src="<?= base_url('assets/img/footer.png') ?>"
+            alt="Footer"
+            class="footer-img">
+    </div>
 
    <button class="fab-button" onclick="window.print()">
       <i class="bi bi-printer"></i>

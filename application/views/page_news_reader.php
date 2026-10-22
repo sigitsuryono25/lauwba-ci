@@ -10,7 +10,7 @@
     <!--DETAIL START HERE-->
     <div class="row">
         <?php
-        if (sizeof($news_detail) > 0) {
+        if (!empty($news_detail)) {
             if ($news_detail->id_kategori == 4) {
                 echo '<div class="col-md-12 ">';
             } else {
