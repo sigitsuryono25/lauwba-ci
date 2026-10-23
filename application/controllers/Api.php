@@ -40,9 +40,12 @@ class Api extends CI_Controller
             ->where('is_active', 'Y')
             ->count_all_results('tutor');
 
+        if ($this->db->field_exists('nomor_urut', 'tutor')) {
+            $this->db->order_by('nomor_urut', 'ASC');
+        }
+
         $rows = $this->db
             ->where('is_active', 'Y')
-            ->order_by('nomor_urut', 'ASC')
             ->order_by('id_tutor', 'ASC')
             ->limit($perPage, $offset)
             ->get('tutor')
@@ -106,6 +109,83 @@ class Api extends CI_Controller
     }
 
     /**
+     * GET /api/trainers/{id}/avatar
+     *
+     * Serves the trainer's avatar image directly. Supports data URI (base64)
+     * stored in MySQL, local files, and external URLs.
+     * Publicly accessible so browsers can load it via <img> tags.
+     */
+    public function trainer_avatar($id = null)
+    {
+        if ($id === null || $id === '') {
+            $this->output->set_status_header(404);
+            return;
+        }
+
+        $row = null;
+
+        if (ctype_digit((string) $id)) {
+            $row = $this->db
+                ->select('gambar, nama')
+                ->where('id_tutor', (int) $id)
+                ->where('is_active', 'Y')
+                ->get('tutor')
+                ->row();
+        }
+
+        if ($row === null) {
+            foreach ($this->db->where('is_active', 'Y')->get('tutor')->result() as $candidate) {
+                if ($this->slug($candidate->nama) === $id) {
+                    $row = $candidate;
+                    break;
+                }
+            }
+        }
+
+        if ($row === null || empty($row->gambar)) {
+            $this->output->set_status_header(404);
+            return;
+        }
+
+        $image = trim((string) $row->gambar);
+
+        // Case 1: Data URI (base64)
+        if (preg_match('#^data:image/([a-zA-Z0-9.+-]+);base64,(.*)$#s', $image, $match)) {
+            $format = strtolower($match[1]);
+            $mime = ($format === 'jpg' || $format === 'jpeg') ? 'image/jpeg' : 'image/'.$format;
+            $binary = base64_decode($match[2]);
+
+            $this->output
+                ->set_status_header(200)
+                ->set_content_type($mime)
+                ->set_header('Cache-Control: public, max-age=604800')
+                ->set_output($binary);
+            return;
+        }
+
+        // Case 2: Full HTTP URL
+        if (preg_match('#^https?://#i', $image)) {
+            redirect($image, 'location', 302);
+            return;
+        }
+
+        // Case 3: Local file on disk
+        $path = FCPATH.'foto_banner/'.$image;
+        if (file_exists($path)) {
+            $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+            $mime = ($ext === 'png') ? 'image/png' : 'image/jpeg';
+            $this->output
+                ->set_status_header(200)
+                ->set_content_type($mime)
+                ->set_header('Cache-Control: public, max-age=604800')
+                ->set_output(file_get_contents($path));
+            return;
+        }
+
+        $this->output->set_status_header(404);
+    }
+
+    /**
      * GET /api/categories
      *
      * Training categories from the main website (kategori1).
@@ -116,9 +196,12 @@ class Api extends CI_Controller
             return;
         }
 
-        $rows = $this->db
-            ->where('aktif', 'Y')
-            ->order_by('seq', 'ASC')
+        $query = $this->db->where('aktif', 'Y');
+        if ($this->db->field_exists('seq', 'kategori1')) {
+            $query->order_by('seq', 'ASC');
+        }
+
+        $rows = $query
             ->order_by('id_kategori', 'ASC')
             ->get('kategori1')
             ->result();
@@ -159,9 +242,14 @@ class Api extends CI_Controller
             return;
         }
 
-        $rows = $this->db
-            ->where_not_in('id_jenis', $this->excludedCourseIds())
-            ->order_by('seq', 'ASC')
+        $query = $this->db
+            ->where_not_in('id_jenis', $this->excludedCourseIds());
+
+        if ($this->db->field_exists('seq', 'jenis')) {
+            $query->order_by('seq', 'ASC');
+        }
+
+        $rows = $query
             ->order_by('id_jenis', 'ASC')
             ->get('jenis')
             ->result();
@@ -255,9 +343,13 @@ class Api extends CI_Controller
 
         $jenisId = (int) $this->input->get('jenis_id');
 
-        $query = $this->db
-            ->order_by('seq', 'ASC')
-            ->order_by('id_kelas', 'ASC');
+        $query = $this->db;
+
+        if ($this->db->field_exists('seq', 'kelas')) {
+            $query->order_by('seq', 'ASC');
+        }
+
+        $query->order_by('id_kelas', 'ASC');
 
         if ($jenisId > 0) {
             $query = $query->where('id_jenis', $jenisId);
@@ -437,13 +529,16 @@ class Api extends CI_Controller
     private function transform($row)
     {
         $image = trim((string) $row->gambar);
+        $avatar = null;
 
-        if ($image !== '' && ! preg_match('#^https?://#i', $image)) {
-            $path = FCPATH.'foto_banner/'.$image;
-
-            $image = file_exists($path)
-                ? base_url('foto_banner/'.rawurlencode($image))
-                : '';
+        if ($image !== '') {
+            if (preg_match('#^https?://#i', $image)) {
+                $avatar = $image;
+            } elseif (! preg_match('#^data:image/#i', $image) && file_exists(FCPATH.'foto_banner/'.$image)) {
+                $avatar = base_url('foto_banner/'.rawurlencode($image));
+            } else {
+                $avatar = base_url('api/trainers/'.(int) $row->id_tutor.'/avatar');
+            }
         }
 
         $role = html_entity_decode(strip_tags((string) ($row->jabatan ?? '')), ENT_QUOTES | ENT_HTML5, 'UTF-8');
@@ -461,7 +556,7 @@ class Api extends CI_Controller
             'name' => trim((string) $row->nama),
             'title' => $title !== '' ? $title : null,
             'bio' => $bio !== '' ? $bio : null,
-            'avatar' => $image !== '' ? $image : null,
+            'avatar' => $avatar,
             'is_active' => $row->is_active === 'Y',
             'sort_order' => (int) ($row->nomor_urut ?? 0),
         ];
@@ -480,7 +575,12 @@ class Api extends CI_Controller
     {
         $map = array();
 
-        foreach ($this->db->order_by('seq', 'ASC')->get('kategori1')->result() as $row) {
+        $query = $this->db;
+        if ($this->db->field_exists('seq', 'kategori1')) {
+            $query->order_by('seq', 'ASC');
+        }
+
+        foreach ($query->order_by('id_kategori', 'ASC')->get('kategori1')->result() as $row) {
             $map[(int) $row->id_kategori] = $row;
         }
 
@@ -491,8 +591,12 @@ class Api extends CI_Controller
     {
         $map = array();
 
-        foreach ($this->db
-            ->order_by('seq', 'ASC')
+        $query = $this->db;
+        if ($this->db->field_exists('seq', 'kelas')) {
+            $query->order_by('seq', 'ASC');
+        }
+
+        foreach ($query
             ->order_by('id_kelas', 'ASC')
             ->get('kelas')
             ->result() as $row) {

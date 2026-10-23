@@ -142,6 +142,8 @@ $route['my-lauwba/my-disbursement'] = 'my_lauwba_api/Akun/pengajuanPencairanSald
 
 // Read-only API for the online course app (Lauwba Academy).
 $route['api/trainers'] = 'api/trainers';
+$route['api/trainers/(:num)/avatar'] = 'api/trainer_avatar/$1';
+$route['api/trainers/(:any)/avatar'] = 'api/trainer_avatar/$1';
 $route['api/trainers/(:num)'] = 'api/trainer/$1';
 $route['api/trainers/(:any)'] = 'api/trainer/$1';
 $route['api/categories'] = 'api/categories';
